@@ -25,9 +25,11 @@ public class GameManager : MonoBehaviour
         switch (state)
         {
             case GameState.Paused:
+                Debug.Log("Игра приостановлена");
                 OnPlayed?.Invoke();
                 break;
             case GameState.Played:
+                Debug.Log("Игра возобновлена");
                 OnPlayed?.Invoke();
                 break;
 
