@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class InputService : MonoBehaviour
 {
-    public ReactiveProperty<bool> EscapeIsDown { get; private set; } = new(false);
+    public ReactiveProperty<bool> EscapeIsDown { get; private set; } = new();
 
     public InputService()
     {
