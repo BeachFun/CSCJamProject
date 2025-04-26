@@ -196,6 +196,32 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -872,7 +898,37 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      GoodWave_0: -4055244260109639165
+      GoodWave_1: -3644920171148967596
+      GoodWave_10: -1431999511989893731
+      GoodWave_11: 901869133018270528
+      GoodWave_12: -6417974503209677603
+      GoodWave_13: -3732352639901931974
+      GoodWave_14: -1707851598064012795
+      GoodWave_15: -6923348305704382452
+      GoodWave_16: -6370605020289280792
+      GoodWave_17: -2254883491997535667
+      GoodWave_18: -8470235007819331035
+      GoodWave_19: 6322413772739525042
+      GoodWave_2: -6501720981627290425
+      GoodWave_20: -147987714906939628
+      GoodWave_21: 2000353969178556961
+      GoodWave_22: -2487073009198045970
+      GoodWave_23: -9135093135241204561
+      GoodWave_24: -4128892711667504409
+      GoodWave_25: -6023700188156781200
+      GoodWave_26: -1270485629235860792
+      GoodWave_27: 5373728744382089648
+      GoodWave_28: -2614846896077350213
+      GoodWave_29: 5630973420180050260
+      GoodWave_3: -505891652982266100
+      GoodWave_4: 4247669877921841840
+      GoodWave_5: -3380093162082453846
+      GoodWave_6: -227691174673895020
+      GoodWave_7: 3707571402201114006
+      GoodWave_8: -4726892392546307947
+      GoodWave_9: 6338761535600090319
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
