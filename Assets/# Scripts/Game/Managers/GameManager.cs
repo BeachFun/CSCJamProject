@@ -15,11 +15,6 @@ public class GameManager : MonoBehaviour
     public event Action OnPaused;
 
 
-    public GameManager()
-    {
-        print("GameManager class is initialized");
-    }
-
     private void Awake()
     {
         _inputService.EscapeIsDown.Subscribe(OnEscapeDownHandler);

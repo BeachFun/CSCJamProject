@@ -5,10 +5,6 @@ public class InputService : MonoBehaviour
 {
     public ReactiveProperty<bool> EscapeIsDown { get; private set; } = new();
 
-    public InputService()
-    {
-        print("InputService class is initialized");
-    }
 
     private void Awake()
     {

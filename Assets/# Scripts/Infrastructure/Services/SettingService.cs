@@ -2,11 +2,6 @@
 
 public class SettingService : MonoBehaviour
 {
-    public SettingService()
-    {
-        print("SettingService class is initialized");
-    }
-
     private void Awake()
     {
         print("Setting Service is initialized");

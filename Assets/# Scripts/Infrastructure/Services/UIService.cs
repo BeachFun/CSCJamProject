@@ -2,11 +2,6 @@
 
 public class UIService : MonoBehaviour
 {
-    public UIService()
-    {
-        print("UIService class is initialized");
-    }
-
     private void Awake()
     {
         print("UI Service is initialized");

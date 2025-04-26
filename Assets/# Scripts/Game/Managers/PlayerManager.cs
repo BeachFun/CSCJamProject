@@ -8,6 +8,17 @@ public class PlayerManager : MonoBehaviour
     public ReactiveProperty<int> Health => _health;
 
 
+    private void Awake()
+    {
+        print("Player Manager is initialized");
+    }
+
+    private void Start()
+    {
+        print("Player Manager is Started");
+    }
+
+
     public void Heat(int points)
     {
         _health.Value -= points;

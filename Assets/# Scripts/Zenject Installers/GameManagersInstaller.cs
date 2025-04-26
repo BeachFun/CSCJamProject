@@ -6,5 +6,6 @@ public class GameManagersInstaller : MonoInstaller
     {
         Container.Bind<GameManager>().FromComponentInHierarchy().AsSingle().NonLazy();
         Container.Bind<PlayerManager>().FromComponentInHierarchy().AsSingle().NonLazy();
+        Container.Bind<SpawnManager>().FromComponentInHierarchy().AsSingle().NonLazy();
     }
 }
