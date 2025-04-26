@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.EventSystems;
 using Zenject;
 
 public class HUDCanvasConttollerUI : MonoBehaviour
