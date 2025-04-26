@@ -1,24 +1,28 @@
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 
 public class NewMonoBehaviourScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    public Vector3 hoverScale = new Vector3(1.1f, 1.1f, 1.0f);
-    private Vector3 originalScale;
+    [Header("Settings")]
+    [SerializeField] private Vector3 _hoverScale = new Vector3(1.1f, 1.1f, 1.0f);
+    [SerializeField] private float _animationTime = .4f;
+
+    private Vector3 _originalScale;
 
     private void Start()
     {
-        originalScale = transform.localScale;
+        _originalScale = transform.localScale;
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        transform.localScale = hoverScale;
+        transform.DOScale(_hoverScale, _animationTime);
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        transform.localScale = originalScale;
+        transform.DOScale(_originalScale, _animationTime / 2);
     }
 }
