@@ -1,0 +1,13 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Red Zombie
+  m_Controller: {fileID: 9100000, guid: 2c1ed6d513b932647b6dd801df49fd10, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 5f9d1bcef0d3b054197f0ecfa437e91b, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: e0f7ad2a20b0d1b4cbd9ef6eac42654e, type: 2}
