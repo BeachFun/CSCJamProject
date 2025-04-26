@@ -1,8 +1,12 @@
 using System;
 using UnityEngine;
+using Zenject;
+using UniRx;
 
 public class GameManager : MonoBehaviour
 {
+    [Inject] private InputService _inputService;
+
     private GameState _gameState;
 
 
@@ -10,11 +14,23 @@ public class GameManager : MonoBehaviour
     public event Action OnPaused;
 
 
+    public GameManager()
+    {
+        print("GameManager class is initialized");
+    }
+
+    private void Awake()
+    {
+        _inputService.EscapeIsDown.Subscribe(OnEscapeDownHandler);
+
+        print("Game Manager is initialized");
+    }
+
     private void Start()
     {
         ChangeGameState(_gameState);
 
-        Debug.Log("Game Manager is Started");
+        print("Game Manager is Started");
     }
 
 
@@ -25,11 +41,11 @@ public class GameManager : MonoBehaviour
         switch (state)
         {
             case GameState.Paused:
-                Debug.Log("Игра приостановлена");
-                OnPlayed?.Invoke();
+                print("Игра приостановлена");
+                OnPaused?.Invoke();
                 break;
             case GameState.Played:
-                Debug.Log("Игра возобновлена");
+                print("Игра возобновлена");
                 OnPlayed?.Invoke();
                 break;
 
@@ -40,5 +56,20 @@ public class GameManager : MonoBehaviour
     public void ExitGame()
     {
 
+    }
+
+
+    private void OnEscapeDownHandler(bool isEscapeDown)
+    {
+        if (!isEscapeDown) return;
+
+        if (_gameState == GameState.Paused)
+        {
+            ChangeGameState(GameState.Played);
+        }
+        else
+        {
+            ChangeGameState(GameState.Paused);
+        }
     }
 }

@@ -3,15 +3,15 @@ using Zenject;
 
 public class PauseMenuControllerUI : MonoBehaviour
 {
-    [Inject] GameManager gameManager;
-    [Inject] UIService uiService;
+    [Inject] GameManager _gameManager;
+    [Inject] UIService _uiService;
 
     private void Awake()
     {
-        if (gameManager is null) return;
+        if (_gameManager is null) return;
 
-        gameManager.OnPlayed += Hide;
-        gameManager.OnPaused += Show;
+        _gameManager.OnPlayed += Hide;
+        _gameManager.OnPaused += Show;
     }
 
     public void Show()
@@ -26,16 +26,16 @@ public class PauseMenuControllerUI : MonoBehaviour
 
     public void Resume()
     {
-        gameManager?.ChangeGameState(GameState.Played);
+        _gameManager?.ChangeGameState(GameState.Played);
     }
 
     public void OpenSettings()
     {
-        uiService?.OpenSettings();
+        _uiService?.OpenSettings();
     }
 
     public void Exit()
     {
-        gameManager?.ExitGame();
+        _gameManager?.ExitGame();
     }
 }
