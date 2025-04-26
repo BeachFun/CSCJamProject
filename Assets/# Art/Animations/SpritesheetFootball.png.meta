@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 9c14912afa7c83b418c29161a55526e1
+guid: 8130532a682c1894486fa7c8116bc1d1
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1691468859893106762
-    second: Dance5_0
+      213: 9094188359614628799
+    second: SpritesheetFootball_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Dance5_0
+      name: SpritesheetFootball_0
       rect:
         serializedVersion: 2
-        x: 1
+        x: 0
         y: 0
-        width: 26
-        height: 29
+        width: 156
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a48409e57fd497710800000000000000
-      internalID: 1691468859893106762
+      spriteID: fb38257412c053e70800000000000000
+      internalID: 9094188359614628799
       vertices: []
       indices: 
       edges: []

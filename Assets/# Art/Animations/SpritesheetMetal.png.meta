@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 4c7baef6c3f433f42b2539e957d49b92
+guid: 328db37256d04154889046a3670dd379
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1173767302619344999
-    second: Details5_0
+      213: 2904234614817177920
+    second: SpritesheetMetal_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Details5_0
+      name: SpritesheetMetal_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 168
-        height: 22
+        width: 156
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7603891942f0a4010800000000000000
-      internalID: 1173767302619344999
+      spriteID: 0414290bef9ed4820800000000000000
+      internalID: 2904234614817177920
       vertices: []
       indices: 
       edges: []
