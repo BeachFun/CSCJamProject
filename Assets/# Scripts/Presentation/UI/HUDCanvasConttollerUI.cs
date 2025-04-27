@@ -3,11 +3,14 @@ using UnityEngine.UI;
 using UniRx;
 using TMPro;
 using Zenject;
+using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class HUDCanvasConttollerUI : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _timerText;
     [SerializeField] private Image[] hearts;
+    [SerializeField] private GameObject gameOverLabel;
 
     [Inject] private GameManager _gameManager;
     [Inject] private PlayerManager _playerManager;
@@ -58,9 +61,23 @@ public class HUDCanvasConttollerUI : MonoBehaviour
             }
         }
 
-        if (health <= 1)
+        if (health <= 0)
         {
             Debug.Log("Game Over!");
+            StartCoroutine(GameOverSequence());
         }
+    }
+
+    private IEnumerator GameOverSequence()
+    {
+        if (gameOverLabel == null)
+            gameOverLabel.SetActive(true);
+
+        Time.timeScale = 0f;
+
+        yield return new WaitForSecondsRealtime(3f);
+
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("MainMenu");
     }
 }
