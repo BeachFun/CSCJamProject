@@ -1,6 +1,7 @@
-using Cysharp.Threading.Tasks;
-using DG.Tweening;
 using UnityEngine;
+using UniRx;
+using Cysharp.Threading.Tasks;
+using RGames.Core;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class ZombieController : MonoBehaviour
@@ -12,6 +13,7 @@ public class ZombieController : MonoBehaviour
     [Header("Binding")]
     [SerializeField] private Animator _animator;
 
+    private GameManager _gameManager;
     private bool _walkIsOn = true;
     private Rigidbody2D _rb;
 
@@ -19,6 +21,8 @@ public class ZombieController : MonoBehaviour
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
+
+        _gameManager.CurrentGameState.Subscribe(OnGameStateChangedHandler);
     }
 
     private void Start()
@@ -54,4 +58,18 @@ public class ZombieController : MonoBehaviour
 
         Destroy(this.gameObject);
     }
+
+
+    private void OnGameStateChangedHandler(GameState state)
+    {
+        if (state == GameState.Played)
+        {
+            _walkIsOn = true;
+        }
+        else
+        {
+            _walkIsOn = false;
+        }
+    }
+
 }
