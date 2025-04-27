@@ -214,11 +214,49 @@ Transform:
   - {fileID: 846566892}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &740858692 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 505786998139021077, guid: 1dd055a021d4b544ba8ecf09defac24f, type: 3}
+  m_PrefabInstance: {fileID: 2444029801188817468}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &740858698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 740858692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2e9e224b8eb2584a8fd92eb456de1c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _hoverScale: {x: 1.1, y: 1.1, z: 1}
+  _animationDuration: 0.2
 --- !u!224 &846566892 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2805148013403074490, guid: 1dd055a021d4b544ba8ecf09defac24f, type: 3}
   m_PrefabInstance: {fileID: 2444029801188817468}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1286097724 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3738050312766627638, guid: 1dd055a021d4b544ba8ecf09defac24f, type: 3}
+  m_PrefabInstance: {fileID: 2444029801188817468}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1286097729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1286097724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2e9e224b8eb2584a8fd92eb456de1c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _hoverScale: {x: 1.1, y: 1.1, z: 1}
+  _animationDuration: 0.2
 --- !u!1 &1502672988
 GameObject:
   m_ObjectHideFlags: 0
@@ -383,6 +421,25 @@ Transform:
   - {fileID: 1502672989}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1523008679 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6196645736635319251, guid: 1dd055a021d4b544ba8ecf09defac24f, type: 3}
+  m_PrefabInstance: {fileID: 2444029801188817468}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1523008685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1523008679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2e9e224b8eb2584a8fd92eb456de1c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _hoverScale: {x: 1.1, y: 1.1, z: 1}
+  _animationDuration: 0.2
 --- !u!1 &1643904033
 GameObject:
   m_ObjectHideFlags: 0
@@ -621,7 +678,7 @@ PrefabInstance:
 
         Yaroslav
 
-        Myxamed
+        Xabib
 
 
 '
@@ -729,8 +786,83 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4072272117970146750, guid: 1dd055a021d4b544ba8ecf09defac24f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2444029801188817474}
+    - targetCorrespondingSourceObject: {fileID: 3095662059442937397, guid: 1dd055a021d4b544ba8ecf09defac24f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2444029801188817473}
+    - targetCorrespondingSourceObject: {fileID: 4629914713015910825, guid: 1dd055a021d4b544ba8ecf09defac24f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2444029801188817472}
+    - targetCorrespondingSourceObject: {fileID: 6196645736635319251, guid: 1dd055a021d4b544ba8ecf09defac24f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1523008685}
+    - targetCorrespondingSourceObject: {fileID: 505786998139021077, guid: 1dd055a021d4b544ba8ecf09defac24f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 740858698}
+    - targetCorrespondingSourceObject: {fileID: 3738050312766627638, guid: 1dd055a021d4b544ba8ecf09defac24f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1286097729}
   m_SourcePrefab: {fileID: 100100000, guid: 1dd055a021d4b544ba8ecf09defac24f, type: 3}
+--- !u!1 &2444029801188817469 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4629914713015910825, guid: 1dd055a021d4b544ba8ecf09defac24f, type: 3}
+  m_PrefabInstance: {fileID: 2444029801188817468}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2444029801188817470 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3095662059442937397, guid: 1dd055a021d4b544ba8ecf09defac24f, type: 3}
+  m_PrefabInstance: {fileID: 2444029801188817468}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2444029801188817471 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4072272117970146750, guid: 1dd055a021d4b544ba8ecf09defac24f, type: 3}
+  m_PrefabInstance: {fileID: 2444029801188817468}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2444029801188817472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2444029801188817469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2e9e224b8eb2584a8fd92eb456de1c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _hoverScale: {x: 1.1, y: 1.1, z: 1}
+  _animationDuration: 0.2
+--- !u!114 &2444029801188817473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2444029801188817470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2e9e224b8eb2584a8fd92eb456de1c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _hoverScale: {x: 1.1, y: 1.1, z: 1}
+  _animationDuration: 0.2
+--- !u!114 &2444029801188817474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2444029801188817471}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2e9e224b8eb2584a8fd92eb456de1c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _hoverScale: {x: 1.1, y: 1.1, z: 1}
+  _animationDuration: 0.2
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
