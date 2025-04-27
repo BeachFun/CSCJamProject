@@ -19,6 +19,7 @@ MonoBehaviour:
     - fa593be182fa24b49bd45f344e6158ea
     - 4b84d8f05142bc344838149a8958eaed
     - 0ca19347f4fbee644a7d9dbb47285076
+    - 8233f8a485adf46449db5e3e014e56b3
     values:
     - goDatas_byGlobalId:
         keys:
@@ -77,3 +78,6 @@ MonoBehaviour:
           iconNameOrGuid: Settings Icon
         - colorIndex: 0
           iconNameOrGuid: Canvas Icon
+    - goDatas_byGlobalId:
+        keys: []
+        values: []

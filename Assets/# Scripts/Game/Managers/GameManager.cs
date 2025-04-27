@@ -6,13 +6,20 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] private float _winTime;
+
     [Inject] private InputService _inputService;
 
     private GameState _gameState;
-
+    private ReactiveProperty<float> _elapsedTime = new();
+    private bool _isCounting = true;
 
     public event Action OnPlayed;
     public event Action OnPaused;
+
+
+    public bool TimerIsOn => _isCounting;
+    public ReactiveProperty<float> ElapsedTime => _elapsedTime;
 
 
     private void Awake()
@@ -25,8 +32,17 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         ChangeGameState(_gameState);
+        _isCounting = true;
 
         print("Game Manager is Started");
+    }
+
+    private void FixedUpdate()
+    {
+        if (_isCounting)
+        {
+            _elapsedTime.Value += Time.fixedDeltaTime;
+        }
     }
 
 
