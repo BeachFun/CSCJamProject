@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using UnityEngine;
 
@@ -11,6 +12,7 @@ public class ZombieController : MonoBehaviour
     [Header("Binding")]
     [SerializeField] private Animator _animator;
 
+    private bool _walkIsOn = true;
     private Rigidbody2D _rb;
 
 
@@ -22,26 +24,34 @@ public class ZombieController : MonoBehaviour
     private void Start()
     {
         _animator?.SetBool("Idle", false);
-        _animator?.SetBool("Walk", true);
+        _animator?.SetBool("Walk", _walkIsOn);
     }
 
     private void FixedUpdate()
     {
-        _rb.linearVelocityY = _speed * Time.fixedDeltaTime;
+        if (_walkIsOn) _rb.linearVelocityY = _speed * Time.fixedDeltaTime;
     }
 
 
     public void Damage(int point)
     {
-        if (point < 0) return;
+        if (point < 0)
+        {
+            Kill();
+            return;
+        }
 
         _health -= point;
     }
 
-    public void Kill()
+    public async void Kill()
     {
         _health = 0;
 
         _animator?.SetBool("Dieth", true);
+
+        await UniTask.Delay(1000);
+
+        Destroy(this.gameObject);
     }
 }
