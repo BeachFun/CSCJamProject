@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1384573261570929909}
   - component: {fileID: 5653954417557400498}
   m_Layer: 0
-  m_Name: GameObject (14)
+  m_Name: P2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -166,7 +166,7 @@ GameObject:
   - component: {fileID: 201386652752387352}
   - component: {fileID: 8585939119260978256}
   m_Layer: 0
-  m_Name: GameObject (11)
+  m_Name: V3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -319,7 +319,7 @@ GameObject:
   - component: {fileID: 6109209301513575582}
   - component: {fileID: 2240222845559810230}
   m_Layer: 0
-  m_Name: GameObject (10)
+  m_Name: P2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -472,7 +472,7 @@ GameObject:
   - component: {fileID: 2883266648476022656}
   - component: {fileID: 1385848606795027538}
   m_Layer: 0
-  m_Name: GameObject (15)
+  m_Name: V3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -625,7 +625,7 @@ GameObject:
   - component: {fileID: 3924892449462777165}
   - component: {fileID: 87953199952968152}
   m_Layer: 0
-  m_Name: GameObject (2)
+  m_Name: V3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -888,7 +888,7 @@ GameObject:
   - component: {fileID: 8437064793949983593}
   - component: {fileID: 6716477923173100795}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: M1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1041,7 +1041,7 @@ GameObject:
   - component: {fileID: 2758917507077314943}
   - component: {fileID: 2316379734847282214}
   m_Layer: 0
-  m_Name: GameObject (13)
+  m_Name: M1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1211,6 +1211,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 2849377545647190648}
   - {fileID: 7449034564211442406}
   - {fileID: 3668317850968842537}
   - {fileID: 7638989745620842840}
@@ -1220,7 +1221,6 @@ Transform:
   - {fileID: 7522340925675798433}
   - {fileID: 4770937708505130620}
   - {fileID: 4576509038023370830}
-  - {fileID: 2849377545647190648}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!210 &5135442771819606294
@@ -1248,7 +1248,7 @@ GameObject:
   - component: {fileID: 144916212825608263}
   - component: {fileID: 7580066824498277777}
   m_Layer: 0
-  m_Name: GameObject (1)
+  m_Name: P2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1401,7 +1401,7 @@ GameObject:
   - component: {fileID: 1376214994040917259}
   - component: {fileID: 3806212089348100900}
   m_Layer: 0
-  m_Name: GameObject (9)
+  m_Name: M1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
