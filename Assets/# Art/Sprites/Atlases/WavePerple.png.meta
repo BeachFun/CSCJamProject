@@ -1,46 +1,34 @@
 fileFormatVersion: 2
-guid: 207907c36e27f0249b518fb6cbea553b
+guid: 60c358f5cd2428840b4260f78b4a24bc
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4645877479321609016
-    second: SpritesheetDetail_0
+      213: 4584172962641745118
+    second: WavePerple_0
   - first:
-      213: -7377771427090744543
-    second: SpritesheetDetail_1
+      213: -3610634355782868939
+    second: WavePerple_1
   - first:
-      213: 17494928881742230
-    second: SpritesheetDetail_2
+      213: -2210043208331196573
+    second: WavePerple_2
   - first:
-      213: 2051716446571722654
-    second: SpritesheetDetail_3
+      213: -521303475087123069
+    second: WavePerple_3
   - first:
-      213: -6300347273617791907
-    second: SpritesheetDetail_4
+      213: 6320214133911318756
+    second: WavePerple_4
   - first:
-      213: -4171146847621491902
-    second: SpritesheetDetail_5
+      213: 7165111296976463615
+    second: WavePerple_5
   - first:
-      213: -7284375016808376943
-    second: SpritesheetDetail_6
+      213: 7567800193290649887
+    second: WavePerple_6
   - first:
-      213: 43710647595290431
-    second: SpritesheetDetail_7
+      213: 8384216989631642054
+    second: WavePerple_7
   - first:
-      213: 7658552688444293126
-    second: SpritesheetDetail_8
-  - first:
-      213: -2438674285415124318
-    second: SpritesheetDetail_9
-  - first:
-      213: -2425939786791759401
-    second: SpritesheetDetail_10
-  - first:
-      213: 3849207618119087066
-    second: SpritesheetDetail_11
-  - first:
-      213: -7153037570962056842
-    second: SpritesheetDetail_12
+      213: 5491859996783695086
+    second: WavePerple_8
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -73,7 +61,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -87,7 +75,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 10
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -133,19 +121,6 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
     buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -159,7 +134,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: iOS
+    buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -175,13 +150,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SpritesheetDetail_0
+      name: WavePerple_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 277
-        width: 168
-        height: 23
+        x: 17
+        y: 67
+        width: 6
+        height: 13
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -190,20 +165,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8cc5c072c07868fb0800000000000000
-      internalID: -4645877479321609016
+      spriteID: ed4163385014e9f30800000000000000
+      internalID: 4584172962641745118
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpritesheetDetail_1
+      name: WavePerple_1
       rect:
         serializedVersion: 2
-        x: 0
-        y: 254
-        width: 168
-        height: 23
+        x: 16
+        y: 59
+        width: 8
+        height: 6
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -212,20 +187,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 12bba36e9f3ec9990800000000000000
-      internalID: -7377771427090744543
+      spriteID: 530adb1fe2374edc0800000000000000
+      internalID: -3610634355782868939
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpritesheetDetail_2
+      name: WavePerple_2
       rect:
         serializedVersion: 2
-        x: 0
-        y: 231
-        width: 168
-        height: 23
+        x: 15
+        y: 51
+        width: 10
+        height: 6
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -234,20 +209,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 691fd5d8b872e3000800000000000000
-      internalID: 17494928881742230
+      spriteID: 367872d49695451e0800000000000000
+      internalID: -2210043208331196573
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpritesheetDetail_3
+      name: WavePerple_3
       rect:
         serializedVersion: 2
-        x: 0
-        y: 208
-        width: 168
-        height: 23
+        x: 14
+        y: 43
+        width: 12
+        height: 6
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -256,20 +231,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e97fbb9dc39297c10800000000000000
-      internalID: 2051716446571722654
+      spriteID: 38d514b5045f3c8f0800000000000000
+      internalID: -521303475087123069
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpritesheetDetail_4
+      name: WavePerple_4
       rect:
         serializedVersion: 2
-        x: 0
-        y: 185
-        width: 168
-        height: 23
+        x: 12
+        y: 35
+        width: 15
+        height: 6
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -278,20 +253,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d54296a098ba098a0800000000000000
-      internalID: -6300347273617791907
+      spriteID: 4e0ff24d449e5b750800000000000000
+      internalID: 6320214133911318756
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpritesheetDetail_5
+      name: WavePerple_5
       rect:
         serializedVersion: 2
-        x: 0
-        y: 162
-        width: 168
-        height: 23
+        x: 11
+        y: 27
+        width: 17
+        height: 6
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -300,20 +275,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 243d781ba0c1d16c0800000000000000
-      internalID: -4171146847621491902
+      spriteID: ff6ab6023c69f6360800000000000000
+      internalID: 7165111296976463615
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpritesheetDetail_6
+      name: WavePerple_6
       rect:
         serializedVersion: 2
-        x: 0
-        y: 139
-        width: 168
-        height: 23
+        x: 10
+        y: 19
+        width: 19
+        height: 6
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -322,20 +297,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 19518683483b8ea90800000000000000
-      internalID: -7284375016808376943
+      spriteID: f11c83c0e2a360960800000000000000
+      internalID: 7567800193290649887
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpritesheetDetail_7
+      name: WavePerple_7
       rect:
         serializedVersion: 2
-        x: 0
-        y: 116
-        width: 168
-        height: 23
+        x: 9
+        y: 11
+        width: 21
+        height: 6
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -344,20 +319,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f3fc1d63a9a4b9000800000000000000
-      internalID: 43710647595290431
+      spriteID: 6c9f9ca3ee8ba5470800000000000000
+      internalID: 8384216989631642054
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpritesheetDetail_8
+      name: WavePerple_8
       rect:
         serializedVersion: 2
-        x: 0
-        y: 93
-        width: 168
-        height: 23
+        x: 8
+        y: 3
+        width: 23
+        height: 6
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -366,96 +341,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 600c558e715a84a60800000000000000
-      internalID: 7658552688444293126
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SpritesheetDetail_9
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 70
-        width: 168
-        height: 23
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 2a2b3f678a6182ed0800000000000000
-      internalID: -2438674285415124318
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SpritesheetDetail_10
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 47
-        width: 168
-        height: 23
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 7d15ac9fd94555ed0800000000000000
-      internalID: -2425939786791759401
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SpritesheetDetail_11
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 24
-        width: 168
-        height: 23
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ad337b84fe12b6530800000000000000
-      internalID: 3849207618119087066
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SpritesheetDetail_12
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 1
-        width: 168
-        height: 23
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 67998c54a3e4bbc90800000000000000
-      internalID: -7153037570962056842
+      spriteID: ee45878e191073c40800000000000000
+      internalID: 5491859996783695086
       vertices: []
       indices: 
       edges: []
@@ -464,7 +351,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: f3eb0ec4b25a5724bb8a97844aa749b0
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -473,20 +360,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      SpritesheetDetail_0: -4645877479321609016
-      SpritesheetDetail_1: -7377771427090744543
-      SpritesheetDetail_10: -2425939786791759401
-      SpritesheetDetail_11: 3849207618119087066
-      SpritesheetDetail_12: -7153037570962056842
-      SpritesheetDetail_2: 17494928881742230
-      SpritesheetDetail_3: 2051716446571722654
-      SpritesheetDetail_4: -6300347273617791907
-      SpritesheetDetail_5: -4171146847621491902
-      SpritesheetDetail_6: -7284375016808376943
-      SpritesheetDetail_7: 43710647595290431
-      SpritesheetDetail_8: 7658552688444293126
-      SpritesheetDetail_9: -2438674285415124318
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
