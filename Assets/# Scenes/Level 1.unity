@@ -1488,6 +1488,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1081303888031721832, guid: 6be6fa71751e6b34a9b2a85890ea8d95, type: 3}
+      propertyPath: m_Resource
+      value: 
+      objectReference: {fileID: 8300000, guid: 8968f4fa47e7dc3458befbc438bea92a, type: 3}
+    - target: {fileID: 1081303888031721832, guid: 6be6fa71751e6b34a9b2a85890ea8d95, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 8968f4fa47e7dc3458befbc438bea92a, type: 3}
     - target: {fileID: 5223180831739928542, guid: 6be6fa71751e6b34a9b2a85890ea8d95, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1528,6 +1536,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5319639458568256291, guid: 6be6fa71751e6b34a9b2a85890ea8d95, type: 3}
+      propertyPath: m_Resource
+      value: 
+      objectReference: {fileID: 8300000, guid: 8fd8b445ef82132408a6520befa64af3, type: 3}
+    - target: {fileID: 5319639458568256291, guid: 6be6fa71751e6b34a9b2a85890ea8d95, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 8fd8b445ef82132408a6520befa64af3, type: 3}
+    - target: {fileID: 5632018971607416919, guid: 6be6fa71751e6b34a9b2a85890ea8d95, type: 3}
+      propertyPath: m_Resource
+      value: 
+      objectReference: {fileID: 8300000, guid: 80aa846012ef6ed419ed6935ab0c9dd5, type: 3}
+    - target: {fileID: 5632018971607416919, guid: 6be6fa71751e6b34a9b2a85890ea8d95, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 80aa846012ef6ed419ed6935ab0c9dd5, type: 3}
     - target: {fileID: 7105544497908440205, guid: 6be6fa71751e6b34a9b2a85890ea8d95, type: 3}
       propertyPath: m_Name
       value: Game Management
@@ -1548,6 +1572,14 @@ PrefabInstance:
       propertyPath: '_spawnZones.Array.data[2]'
       value: 
       objectReference: {fileID: 2122729294}
+    - target: {fileID: 7713820148852381189, guid: 6be6fa71751e6b34a9b2a85890ea8d95, type: 3}
+      propertyPath: m_Resource
+      value: 
+      objectReference: {fileID: 8300000, guid: 87406ce4848786740901c0faa5b4e3f2, type: 3}
+    - target: {fileID: 7713820148852381189, guid: 6be6fa71751e6b34a9b2a85890ea8d95, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 87406ce4848786740901c0faa5b4e3f2, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
