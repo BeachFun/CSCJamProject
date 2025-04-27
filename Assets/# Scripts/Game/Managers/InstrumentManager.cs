@@ -140,7 +140,7 @@ public class InstrumentManager : MonoBehaviour, IManager
         int index = _instruments.ToList().IndexOf(value);
         if (index != -1)
         {
-            if (_roadsInstrImage[index] is not null)
+            if (_roadsInstrImage[index] != null)
                 _roadsInstrImage[index].sprite = null;
             _instruments[index] = InstrumentEnum.None;
         }
