@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: df6ed5ac154faf84f870af6680cd1dee
+guid: bee119b6132f14a4c8855241595cafbf
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4824328389704425691
-    second: Heart 1_0
+      213: -6715526738325882343
+    second: BlackBox_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -110,19 +110,6 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: iOS
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
     buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -139,23 +126,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Heart 1_0
+      name: BlackBox_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 60
-        height: 55
+        x: 4519
+        y: 189
+        width: 662
+        height: 482
       alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 32, y: 32, z: 32, w: 32}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: bd02a2c2c1573f240800000000000000
-      internalID: 4824328389704425691
+      spriteID: 91ab27a0308adc2a0800000000000000
+      internalID: -6715526738325882343
       vertices: []
       indices: 
       edges: []
@@ -164,7 +151,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 217364a1f8535434a843a3ba7469035c
     internalID: 0
     vertices: []
     indices: 
@@ -174,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Heart 1_0: 4824328389704425691
+      BlackBox_0: -6715526738325882343
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

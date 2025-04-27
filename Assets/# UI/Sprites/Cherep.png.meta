@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: df6ed5ac154faf84f870af6680cd1dee
+guid: 6b5ba578fe16ff14f9b3ebce41ac877e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4824328389704425691
-    second: Heart 1_0
+      213: 1812124857601181964
+    second: Cherep_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -110,19 +110,6 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: iOS
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
     buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -139,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Heart 1_0
+      name: Cherep_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 60
-        height: 55
+        x: 4559
+        y: 1269
+        width: 522
+        height: 712
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -154,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: bd02a2c2c1573f240800000000000000
-      internalID: 4824328389704425691
+      spriteID: c0949f9f4f5f52910800000000000000
+      internalID: 1812124857601181964
       vertices: []
       indices: 
       edges: []
@@ -174,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Heart 1_0: 4824328389704425691
+      Cherep_0: 1812124857601181964
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
