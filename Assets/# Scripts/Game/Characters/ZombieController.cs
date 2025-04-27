@@ -2,6 +2,7 @@ using UnityEngine;
 using Zenject;
 using UniRx;
 using Cysharp.Threading.Tasks;
+using System;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class ZombieController : MonoBehaviour
@@ -13,27 +14,29 @@ public class ZombieController : MonoBehaviour
     [Header("Binding")]
     [SerializeField] private Animator _animator;
 
-    [Inject] private GameManager _gameManager;
-    private bool _walkIsOn = true;
     private Rigidbody2D _rb;
+
+
+    public event Action<ZombieController> OnDead;
+
+    public bool WalkIsOn { get; set; }
 
 
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
-
-        _gameManager.CurrentGameState.Subscribe(OnGameStateChangedHandler);
     }
 
     private void Start()
     {
         _animator?.SetBool("Idle", false);
-        _animator?.SetBool("Walk", _walkIsOn);
+        _animator?.SetBool("Walk", WalkIsOn);
     }
 
     private void FixedUpdate()
     {
-        if (_walkIsOn) _rb.linearVelocityY = _speed * Time.fixedDeltaTime;
+        if (WalkIsOn) _rb.linearVelocityY = _speed * Time.fixedDeltaTime;
+        else _rb.linearVelocityY = 0;
     }
 
 
@@ -58,18 +61,4 @@ public class ZombieController : MonoBehaviour
 
         Destroy(this.gameObject);
     }
-
-
-    private void OnGameStateChangedHandler(GameState state)
-    {
-        if (state == GameState.Played)
-        {
-            _walkIsOn = true;
-        }
-        else
-        {
-            _walkIsOn = false;
-        }
-    }
-
 }

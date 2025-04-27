@@ -18,7 +18,7 @@ public class SpawnZone2D : MonoBehaviour
     }
 
 
-    public void Spawn(GameObject prefabToSpawn)
+    public GameObject Spawn(GameObject prefabToSpawn)
     {
         Bounds bounds = _spawnArea.bounds;
 
@@ -31,11 +31,11 @@ public class SpawnZone2D : MonoBehaviour
 
             if (_spawnArea.OverlapPoint(randomPoint))
             {
-                Instantiate(prefabToSpawn, randomPoint, Quaternion.identity);
-                return;
+                return Instantiate(prefabToSpawn, randomPoint, Quaternion.identity);
             }
         }
 
         Debug.LogWarning("Не удалось найти подходящую точку для спавна");
+        return null;
     }
 }

@@ -21,6 +21,7 @@ public class SpawnManager : MonoBehaviour, IManager
 
 
     [Inject] private GameManager _gameManager;
+    [Inject] private EnemyManager _enemyManager;
 
     private bool m_accelerationIsOn = true;
     private float m_lastElapsedTime;
@@ -57,7 +58,7 @@ public class SpawnManager : MonoBehaviour, IManager
 
         if (enemyPrefab is null) return;
 
-        _spawnZones[Random.Range(0, _spawnZones.Length)].Spawn(enemyPrefab);
+        _enemyManager.AddEnemy(_spawnZones[Random.Range(0, _spawnZones.Length)].Spawn(enemyPrefab));
 
         m_timerSpawn = 0;
     }
