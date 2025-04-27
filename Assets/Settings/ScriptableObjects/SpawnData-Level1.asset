@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: SpawnData-Level1
   m_EditorClassIdentifier: 
   Enemies:
-  - ChancePoints: 0
-    EnemyPrefab: {fileID: 0}
-  - ChancePoints: 0
-    EnemyPrefab: {fileID: 0}
-  - ChancePoints: 0
-    EnemyPrefab: {fileID: 0}
+  - ChancePoints: 320
+    EnemyPrefab: {fileID: 7428964198021096686, guid: cea59c6f08a06db468ee089da8d1b17d, type: 3}
+  - ChancePoints: 80
+    EnemyPrefab: {fileID: 7428964198021096686, guid: 8ed1e53a7c1f7aa4fade986916fb9e4e, type: 3}
+  - ChancePoints: 20
+    EnemyPrefab: {fileID: 7428964198021096686, guid: ac79ca991d60e3d45996dd6bf17b6b9f, type: 3}
