@@ -126,6 +126,11 @@ public class InstrumentManager : MonoBehaviour, IManager
         m_lastElapsedTime = elapsedTime;
     }
 
+
+    public void Instrument1(int roadIndex) => ChangeRoad(roadIndex, InstrumentEnum.BassGuitar);
+    public void Instrument2(int roadIndex) => ChangeRoad(roadIndex, InstrumentEnum.ElectroGuitar);
+    public void Instrument3(int roadIndex) => ChangeRoad(roadIndex, InstrumentEnum.Synthezator);
+
     public void ChangeRoad(int roadIndex, InstrumentEnum value)
     {
         // Если на дорожке такой же инструмент
