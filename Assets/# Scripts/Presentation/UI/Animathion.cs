@@ -7,7 +7,7 @@ public class NewMonoBehaviourScript : MonoBehaviour, IPointerEnterHandler, IPoin
 {
     [Header("Settings")]
     [SerializeField] private Vector3 _hoverScale = new Vector3(1.1f, 1.1f, 1.0f);
-    [SerializeField] private float _animationTime = .4f;
+    [SerializeField] private float _animationDuration = .2f;
 
     private Vector3 _originalScale;
 
@@ -18,11 +18,11 @@ public class NewMonoBehaviourScript : MonoBehaviour, IPointerEnterHandler, IPoin
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        transform.DOScale(_hoverScale, _animationTime);
+        transform.DOScale(_hoverScale, _animationDuration);
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        transform.DOScale(_originalScale, _animationTime / 2);
+        transform.DOScale(_originalScale, _animationDuration / 2);
     }
 }
