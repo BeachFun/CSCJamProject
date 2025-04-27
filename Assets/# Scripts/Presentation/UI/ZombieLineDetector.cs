@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class ZombieLineDetector : MonoBehaviour
@@ -13,6 +14,8 @@ public class ZombieLineDetector : MonoBehaviour
         {
             zombiesInRange.Add(zombie);
         }
+
+        zombiesInRange = zombiesInRange.Where(x => x != null).ToList();
     }
 
     private void OnTriggerExit2D(Collider2D other)
@@ -26,6 +29,11 @@ public class ZombieLineDetector : MonoBehaviour
 
     public ZombieController GetRandomZombie()
     {
+        if (zombiesInRange.Count == 0)
+            return null;
+
+        zombiesInRange = zombiesInRange.Where(x => x != null).ToList();
+
         if (zombiesInRange.Count == 0)
             return null;
 
