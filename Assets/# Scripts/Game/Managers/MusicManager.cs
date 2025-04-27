@@ -14,6 +14,10 @@ public class MusicManager : MonoBehaviour, IManager
 
     [Inject] private GameManager _gameManager;
 
+    private float _bassVolume;
+    private float _guitarVolume;
+    private float _synthVolume;
+
 
     public ManagerStatus Status { get; private set; }
     public bool Instr1IsOn { get; private set; }
@@ -23,28 +27,40 @@ public class MusicManager : MonoBehaviour, IManager
 
     private void Awake()
     {
+        _bassVolume = _bass.volume;
+        _guitarVolume = _guitar.volume;
+        _synthVolume = _synth.volume;
+
         _gameManager.CurrentGameState.Subscribe(OnGameStateChangedHandler);
     }
+
+    private void Start()
+    {
+        _bass.volume = 0f;
+        _guitar.volume = 0f;
+        _synth.volume = 0f;
+    }
+
 
     public void UpdateState(int intstrumentIndex, bool state)
     {
         if (intstrumentIndex == 1)
         {
             Instr1IsOn = state;
-            if (state) _guitar.Play();
-            else _guitar.Pause();
+            if (state) _bass.volume = _bassVolume;
+            else _bass.volume = 0f;
         }
         if (intstrumentIndex == 2)
         {
             Instr2IsOn = state;
-            if (state) _bass.Play();
-            else _bass.Pause();
+            if (state) _guitar.volume = _guitarVolume;
+            else _guitar.volume = 0f;
         }
         if (intstrumentIndex == 3)
         {
             Instr3IsOn = state;
-            if (state) _synth.Play();
-            else _synth.Pause();
+            if (state) _synth.volume = _synthVolume;
+            else _synth.volume = 0f;
         }
     }
 

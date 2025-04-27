@@ -146,7 +146,7 @@ public class InstrumentManager : MonoBehaviour, IManager
         }
 
         _instruments[roadIndex] = value;
-        if (_roadsInstrImage[roadIndex] is not null)
+        if (_roadsInstrImage[roadIndex] != null)
             _roadsInstrImage[roadIndex].sprite = GetInstrumentSprite(ref value);
 
         // Удаление инстумента с доррожки
