@@ -58,7 +58,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -163,10 +163,10 @@ TextureImporter:
       name: DancerFinal_0
       rect:
         serializedVersion: 2
-        x: 9
-        y: 149
-        width: 122
-        height: 122
+        x: 0
+        y: 145
+        width: 140
+        height: 145
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -185,10 +185,10 @@ TextureImporter:
       name: DancerFinal_1
       rect:
         serializedVersion: 2
-        x: 149
-        y: 149
-        width: 122
-        height: 132
+        x: 140
+        y: 145
+        width: 140
+        height: 145
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -207,10 +207,10 @@ TextureImporter:
       name: DancerFinal_2
       rect:
         serializedVersion: 2
-        x: 289
-        y: 149
-        width: 122
-        height: 137
+        x: 280
+        y: 145
+        width: 140
+        height: 145
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -229,10 +229,10 @@ TextureImporter:
       name: DancerFinal_3
       rect:
         serializedVersion: 2
-        x: 429
-        y: 149
-        width: 122
-        height: 141
+        x: 420
+        y: 145
+        width: 140
+        height: 145
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -251,10 +251,10 @@ TextureImporter:
       name: DancerFinal_4
       rect:
         serializedVersion: 2
-        x: 9
-        y: 4
-        width: 122
-        height: 142
+        x: 0
+        y: 0
+        width: 140
+        height: 145
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -273,10 +273,10 @@ TextureImporter:
       name: DancerFinal_5
       rect:
         serializedVersion: 2
-        x: 149
-        y: 4
-        width: 122
-        height: 142
+        x: 140
+        y: 0
+        width: 140
+        height: 145
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -295,10 +295,10 @@ TextureImporter:
       name: DancerFinal_6
       rect:
         serializedVersion: 2
-        x: 289
-        y: 4
-        width: 122
-        height: 142
+        x: 280
+        y: 0
+        width: 140
+        height: 145
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -317,10 +317,10 @@ TextureImporter:
       name: DancerFinal_7
       rect:
         serializedVersion: 2
-        x: 429
-        y: 4
-        width: 122
-        height: 137
+        x: 420
+        y: 0
+        width: 140
+        height: 145
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -339,7 +339,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 16c08f3fb8fa5c64ca150970e4eb69e0
     internalID: 0
     vertices: []
     indices: 
