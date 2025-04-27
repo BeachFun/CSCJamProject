@@ -11,11 +11,10 @@ public class GameManager : MonoBehaviour
 
     [Inject] private InputService _inputService;
 
-    private GameState _gameState;
+    private ReactiveProperty<GameState> _gameState;
     private bool _isCounting = true;
 
-    public event Action OnPlayed;
-    public event Action OnPaused;
+    public ReactiveProperty<GameState> CurrentGameState => _gameState;
 
 
     public bool TimerIsOn => _isCounting;
@@ -31,7 +30,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        ChangeGameState(_gameState);
+        ChangeGameState(_gameState.Value);
         _isCounting = true;
 
         print("Game Manager is Started");
@@ -48,21 +47,10 @@ public class GameManager : MonoBehaviour
 
     public void ChangeGameState(GameState state)
     {
-        _gameState = state;
+        _gameState.Value = state;
 
-        switch (state)
-        {
-            case GameState.Paused:
-                print("Игра приостановлена");
-                OnPaused?.Invoke();
-                break;
-            case GameState.Played:
-                print("Игра возобновлена");
-                OnPlayed?.Invoke();
-                break;
-
-            default: break;
-        }
+        if (state == GameState.Paused) print("Игра приостановлена");
+        if (state == GameState.Played) print("Игра возобновлена");
     }
 
     public void ExitGame()
@@ -75,12 +63,14 @@ public class GameManager : MonoBehaviour
     {
         if (!isEscapeDown) return;
 
-        if (_gameState == GameState.Paused)
+        if (_gameState.Value == GameState.Paused)
         {
+            _isCounting = false;
             ChangeGameState(GameState.Played);
         }
         else
         {
+            _isCounting = true;
             ChangeGameState(GameState.Paused);
         }
     }

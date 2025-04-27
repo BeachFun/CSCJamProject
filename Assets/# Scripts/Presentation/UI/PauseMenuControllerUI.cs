@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Zenject;
+using UniRx;
+using Zenject.Asteroids;
 
 public class PauseMenuControllerUI : MonoBehaviour
 {
@@ -12,8 +14,7 @@ public class PauseMenuControllerUI : MonoBehaviour
     {
         if (_gameManager is null) return;
 
-        _gameManager.OnPlayed += Hide;
-        _gameManager.OnPaused += Show;
+        _gameManager.CurrentGameState.Subscribe(OnGameStateChangedHandler);
     }
 
 
@@ -47,5 +48,18 @@ public class PauseMenuControllerUI : MonoBehaviour
     public void Exit()
     {
         _gameManager?.ExitGame();
+    }
+
+
+    private void OnGameStateChangedHandler(GameState state)
+    {
+        if (state == GameState.Paused)
+        {
+            Show();
+        }
+        else
+        {
+            Hide();
+        }
     }
 }

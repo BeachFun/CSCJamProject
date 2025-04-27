@@ -1,13 +1,17 @@
 ﻿using UnityEngine;
+using Zenject;
+using UniRx;
+using RGames.Core;
+using Cysharp.Threading.Tasks;
 
-public class SpawnManager : MonoBehaviour
+public class SpawnManager : MonoBehaviour, IManager
 {
     [Header("Settings - main")]
-    [SerializeField] private float _minSpawnIntervalInSeconds;
-    [SerializeField] private float _maxSpawnIntervalInSeconds;
-    [SerializeField] private float _intervalStepAccelerationSpawn;
-    [SerializeField, Range(0.0f, 1.0f)] private float _stepAccelerationTimeInSeconds;
-    [SerializeField] private float _timeInSecondsAccelerationStop;
+    [SerializeField] private float _intervalSpawn;
+    [SerializeField] private float _spawnDelay;
+    [SerializeField] private float _intervalAcceleration;
+    [SerializeField, Range(0.0f, 1.0f)] private float _stepAccelerationTime;
+    [SerializeField] private float _minSpawnInternval;
 
     [Header("Settings - spawn prefabs")]
     [SerializeField] private SpawnManagerData _data;
@@ -16,24 +20,33 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] private SpawnZone2D[] _spawnZones;
 
 
-    private float _lastSpawnTime;
+    [Inject] private GameManager _gameManager;
+
+    private bool m_accelerationIsOn = true;
+    private float m_lastElapsedTime;
+    private float m_timerSpawn;
+    private float m_timerAcceleration;
+
+    public ManagerStatus Status { get; private set; }
 
 
     private void Awake()
     {
+        Status = ManagerStatus.Initializing;
+
         _data = (SpawnManagerData)_data.Clone();
+
+        _gameManager.CurrentGameState.Subscribe(OnGameStateChangedHandler);
+        _gameManager.ElapsedTime.Subscribe(OnTimeUpdateHandler);
 
         print("Spawn Manager is initialized");
     }
 
     private void Start()
     {
-        print("Spawn Manager is Started");
-    }
+        Status = ManagerStatus.Started;
 
-    private void FixedUpdate()
-    {
-        _data.Enemies[0].ChancePoints += 1;
+        print("Spawn Manager is Started");
     }
 
 
@@ -46,7 +59,7 @@ public class SpawnManager : MonoBehaviour
 
         _spawnZones[Random.Range(0, _spawnZones.Length)].Spawn(enemyPrefab);
 
-        _lastSpawnTime = 0;
+        m_timerSpawn = 0;
     }
 
     private GameObject GetRandomEnemy()
@@ -71,5 +84,76 @@ public class SpawnManager : MonoBehaviour
         }
 
         return null;
+    }
+
+
+    private void OnGameStateChangedHandler(GameState state)
+    {
+        if (state == GameState.Played)
+        {
+            Status = ManagerStatus.Started;
+        }
+        else
+        {
+            Status = ManagerStatus.Suspended;
+        }
+    }
+
+
+    private void OnTimeUpdateHandler(float elapsedTime)
+    {
+        if (Status != ManagerStatus.Started) return;
+
+        float interval = (elapsedTime - m_lastElapsedTime);
+
+        if (m_accelerationIsOn) AccelerationCalc(ref elapsedTime, ref interval);
+        SpawnCalc(elapsedTime, interval);
+
+        //_data.Enemies[0].ChancePoints += 1;
+
+        m_lastElapsedTime = elapsedTime;
+    }
+
+    /// <summary>
+    /// Вычисление времени спавна
+    /// </summary>
+    /// <param name="elapsedTime"></param>
+    private async void SpawnCalc(float elapsedTime, float interval)
+    {
+        m_timerSpawn += interval;
+
+        // Спавн, если время спавна пришло
+        if (m_timerSpawn >= _intervalSpawn)
+        {
+            m_timerSpawn = 0;
+
+            await UniTask.Delay(Random.Range(0, (int)_spawnDelay * 1000));
+
+            Spawn();
+        }
+    }
+
+    /// <summary>
+    /// Вычисление ускорения спавна
+    /// </summary>
+    private void AccelerationCalc(ref float elapsedTime, ref float interval)
+    {
+        m_timerAcceleration += interval;
+
+        // Ускорение спавна, если время шага пришло
+        if (m_timerAcceleration >= _intervalAcceleration)
+        {
+            float minusTime = Mathf.Min(_stepAccelerationTime, _intervalSpawn - _minSpawnInternval);
+
+            _intervalSpawn -= minusTime;
+
+            // Отключение ускорения, если интервал дошел до минимальной границы
+            if (minusTime < _stepAccelerationTime)
+            {
+                m_accelerationIsOn = false;
+            }
+
+            m_timerAcceleration = 0;
+        }
     }
 }
