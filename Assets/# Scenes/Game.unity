@@ -941,6 +941,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1466908418}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &938862593 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9158383375916541433, guid: 23aeb237d79cb8f4ba94c73573e3bb77, type: 3}
+  m_PrefabInstance: {fileID: 239496730479690531}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1006068075
 GameObject:
   m_ObjectHideFlags: 0
@@ -1118,6 +1123,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4215799513062301828, guid: f7757f87c56b2614e9081358ba6403e9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 938862593}
+    - target: {fileID: 4215799513062301828, guid: f7757f87c56b2614e9081358ba6403e9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetActive
+      objectReference: {fileID: 0}
     - target: {fileID: 4913328150010033733, guid: f7757f87c56b2614e9081358ba6403e9, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1132,6 +1145,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4913328150010033733, guid: f7757f87c56b2614e9081358ba6403e9, type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6060848426007522859, guid: f7757f87c56b2614e9081358ba6403e9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7231956414646517882, guid: f7757f87c56b2614e9081358ba6403e9, type: 3}
