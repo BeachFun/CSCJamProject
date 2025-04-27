@@ -4,6 +4,8 @@ using Zenject;
 using RGames.Core;
 using System.Linq;
 using Cysharp.Threading.Tasks;
+using static UnityEngine.Rendering.DebugUI;
+using System;
 
 public class InstrumentManager : MonoBehaviour, IManager
 {
@@ -32,6 +34,7 @@ public class InstrumentManager : MonoBehaviour, IManager
     [SerializeField] private GameObject _instrument3;
 
     [Inject] private GameManager _gameManager;
+    [Inject] private MusicManager _musicManager;
 
 
     //private bool m_accelerationIsOn = true;
@@ -123,23 +126,34 @@ public class InstrumentManager : MonoBehaviour, IManager
         m_lastElapsedTime = elapsedTime;
     }
 
-    public void ChangeInstrument(int roadIndex, InstrumentEnum value)
+    public void ChangeRoad(int roadIndex, InstrumentEnum value)
     {
-        // Если на этой дорожке интрумент есть и это None
-        if (_instruments[roadIndex] == value 
-            || _instruments[roadIndex] == InstrumentEnum.None) return;
+        // Если на дорожке такой же инструмент
+        if (_instruments[roadIndex] == value) return;
 
-        // Случай когда инстумент был на другой дорожке
+        // Если на другой дорожке есть этот инструмент, то удалить
         int index = _instruments.ToList().IndexOf(value);
         if (index != -1)
         {
-            _roadsInstrImage[index].sprite = null;
+            if (_roadsInstrImage[index] is not null)
+                _roadsInstrImage[index].sprite = null;
             _instruments[index] = InstrumentEnum.None;
         }
 
         _instruments[roadIndex] = value;
         if (_roadsInstrImage[roadIndex] is not null)
             _roadsInstrImage[roadIndex].sprite = GetInstrumentSprite(ref value);
+
+        // Удаление инстумента с доррожки
+        if (value != InstrumentEnum.None)
+        {
+            _musicManager.UpdateState((int)value, true);
+        }
+        // Добавление инструмента на дорожку
+        else
+        {
+            _musicManager.UpdateState((int)value, false);
+        }
 
         OnInstrumentChangedHandler();
     }
