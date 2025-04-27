@@ -19,7 +19,7 @@ public class ZombieController : MonoBehaviour
 
     public event Action<ZombieController> OnDead;
 
-    public bool WalkIsOn { get; set; }
+    public bool WalkIsOn { get; set; } = true;
 
 
     private void Awake()

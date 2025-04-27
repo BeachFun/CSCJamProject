@@ -2,7 +2,6 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using Zenject;
 using UniRx;
-using Zenject.Asteroids;
 
 public class PauseMenuControllerUI : MonoBehaviour
 {

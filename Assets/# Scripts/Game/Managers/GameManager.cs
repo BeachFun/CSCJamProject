@@ -48,8 +48,16 @@ public class GameManager : MonoBehaviour
     {
         _gameState.Value = state;
 
-        if (state == GameState.Paused) print("Игра приостановлена");
-        if (state == GameState.Played) print("Игра возобновлена");
+        if (_gameState.Value == GameState.Paused)
+        {
+            _isCounting = true;
+            print("Игра возобновлена");
+        }
+        else
+        {
+            _isCounting = false;
+            print("Игра приостановлена");
+        }
     }
 
     public void ExitGame()
