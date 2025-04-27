@@ -818,9 +818,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LineNumber: 0
-  zombiesInRange:
-  - {fileID: 0}
-  - {fileID: 0}
+  zombiesInRange: []
 --- !u!61 &489031916
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1218,8 +1216,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LineNumber: 1
-  zombiesInRange:
-  - {fileID: 0}
+  zombiesInRange: []
 --- !u!61 &1391644204
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1598,10 +1595,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LineNumber: 2
-  zombiesInRange:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  zombiesInRange: []
 --- !u!61 &1965104487
 BoxCollider2D:
   m_ObjectHideFlags: 0
