@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
 
     [Inject] private InputService _inputService;
 
-    private ReactiveProperty<GameState> _gameState;
+    private ReactiveProperty<GameState> _gameState = new();
     private bool _isCounting = true;
 
     public ReactiveProperty<GameState> CurrentGameState => _gameState;
@@ -65,12 +65,12 @@ public class GameManager : MonoBehaviour
 
         if (_gameState.Value == GameState.Paused)
         {
-            _isCounting = false;
+            _isCounting = true;
             ChangeGameState(GameState.Played);
         }
         else
         {
-            _isCounting = true;
+            _isCounting = false;
             ChangeGameState(GameState.Paused);
         }
     }
