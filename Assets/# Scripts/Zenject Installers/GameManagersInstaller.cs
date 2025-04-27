@@ -8,5 +8,6 @@ public class GameManagersInstaller : MonoInstaller
         Container.Bind<PlayerManager>().FromComponentInHierarchy().AsSingle().NonLazy();
         Container.Bind<EnemyManager>().FromComponentInHierarchy().AsSingle().NonLazy();
         Container.Bind<SpawnManager>().FromComponentInHierarchy().AsSingle().NonLazy();
+        Container.Bind<InstrumentManager>().FromComponentInHierarchy().AsSingle().NonLazy();
     }
 }
