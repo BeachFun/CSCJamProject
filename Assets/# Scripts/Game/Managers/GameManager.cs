@@ -29,8 +29,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        ChangeGameState(_gameState.Value);
-        _isCounting = true;
+        ChangeGameState(GameState.Played);
 
         print("Game Manager is Started");
     }
@@ -46,18 +45,18 @@ public class GameManager : MonoBehaviour
 
     public void ChangeGameState(GameState state)
     {
-        _gameState.Value = state;
-
-        if (_gameState.Value == GameState.Paused)
-        {
-            _isCounting = true;
-            print("Игра возобновлена");
-        }
-        else
+        if (state == GameState.Paused)
         {
             _isCounting = false;
             print("Игра приостановлена");
         }
+        else
+        {
+            _isCounting = true;
+            print("Игра возобновлена");
+        }
+
+        _gameState.Value = state;
     }
 
     public void ExitGame()
@@ -72,12 +71,10 @@ public class GameManager : MonoBehaviour
 
         if (_gameState.Value == GameState.Paused)
         {
-            _isCounting = true;
             ChangeGameState(GameState.Played);
         }
         else
         {
-            _isCounting = false;
             ChangeGameState(GameState.Paused);
         }
     }
