@@ -6,12 +6,12 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private float _winTime;
+    [SerializeField] private ReactiveProperty<float> _elapsedTime = new();
+    [SerializeField] private float _winTimeInSeconds = 300;
 
     [Inject] private InputService _inputService;
 
     private GameState _gameState;
-    private ReactiveProperty<float> _elapsedTime = new();
     private bool _isCounting = true;
 
     public event Action OnPlayed;

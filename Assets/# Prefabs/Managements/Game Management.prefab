@@ -44,6 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45388c5a3039b1b4a9a4f6700bcc03b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _data: {fileID: 11400000, guid: 4784bb3c95df13a44a33fcab2a8eb74f, type: 2}
+  _spawnZones: []
 --- !u!1 &4194205366129148794
 GameObject:
   m_ObjectHideFlags: 0
@@ -249,6 +251,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d6431a23b205f14cb845411115a2422, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _winTime: 0
 --- !u!1 &8426579726067097601
 GameObject:
   m_ObjectHideFlags: 0

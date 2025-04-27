@@ -2,6 +2,9 @@
 
 public class SpawnManager : MonoBehaviour
 {
+    [Header("Settings")]
+    [SerializeField] private SpawnManagerData _data;
+
     [Header("Binding")]
     [SerializeField] private SpawnZone2D[] _spawnZones;
 
