@@ -1,4 +1,5 @@
 using UnityEngine;
+using Zenject;
 using UniRx;
 using Cysharp.Threading.Tasks;
 
@@ -12,7 +13,7 @@ public class ZombieController : MonoBehaviour
     [Header("Binding")]
     [SerializeField] private Animator _animator;
 
-    private GameManager _gameManager;
+    [Inject] private GameManager _gameManager;
     private bool _walkIsOn = true;
     private Rigidbody2D _rb;
 
