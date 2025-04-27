@@ -1,7 +1,6 @@
 using UnityEngine;
 using UniRx;
 using Cysharp.Threading.Tasks;
-using RGames.Core;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class ZombieController : MonoBehaviour
