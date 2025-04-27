@@ -1,10 +1,12 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Zenject;
 
 public class PauseMenuControllerUI : MonoBehaviour
 {
     [Inject] GameManager _gameManager;
     [Inject] UIService _uiService;
+
 
     private void Awake()
     {
@@ -13,6 +15,7 @@ public class PauseMenuControllerUI : MonoBehaviour
         _gameManager.OnPlayed += Hide;
         _gameManager.OnPaused += Show;
     }
+
 
     public void Show()
     {
@@ -24,9 +27,16 @@ public class PauseMenuControllerUI : MonoBehaviour
         this.gameObject.SetActive(false);
     }
 
+
     public void Resume()
     {
         _gameManager?.ChangeGameState(GameState.Played);
+    }
+
+    public void RestartCurrentScene()
+    {
+        Scene currentScene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(currentScene.name);
     }
 
     public void OpenSettings()
