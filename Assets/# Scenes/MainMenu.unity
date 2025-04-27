@@ -771,6 +771,18 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 2085914706}
+    - target: {fileID: 3116164652355738836, guid: 1dd055a021d4b544ba8ecf09defac24f, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3116164652355738836, guid: 1dd055a021d4b544ba8ecf09defac24f, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3116164652355738836, guid: 1dd055a021d4b544ba8ecf09defac24f, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3229229411168366714, guid: 1dd055a021d4b544ba8ecf09defac24f, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
