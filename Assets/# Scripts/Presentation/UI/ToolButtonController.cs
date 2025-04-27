@@ -2,24 +2,24 @@ using UnityEngine;
 
 public class ToolButtonController : MonoBehaviour
 {
-    [SerializeField] private ZombieLineDetector lineDetector; // Ссылка на ловушку этой линии
+    [SerializeField] private ZombieLineDetector lineDetector; // пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
 
     public void OnToolButtonPressed()
     {
         if (lineDetector == null)
         {
-            Debug.LogWarning("LineDetector не привязан к кнопке!");
+            Debug.LogWarning("LineDetector пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ!");
             return;
         }
 
         ZombieController randomZombie = lineDetector.GetRandomZombie();
         if (randomZombie != null)
         {
-            Destroy(randomZombie.gameObject); // Просто удаляем зомби
+            Destroy(randomZombie.gameObject); // пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
         }
         else
         {
-            Debug.Log("На линии нет зомби!");
+            Debug.Log("пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ!");
         }
     }
 }
