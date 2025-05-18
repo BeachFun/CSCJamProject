@@ -3,8 +3,8 @@ using System.Collections;
 
 public class ShakeOnStart : MonoBehaviour
 {
-    public float duration = 0.5f;        // Время тряски
-    public float magnitude = 10f;         // Сила тряски в пикселях
+    public float duration = 0.5f;
+    public float magnitude = 10f;
     private Vector3 originalPosition;
 
     private void Start()
@@ -19,7 +19,7 @@ public class ShakeOnStart : MonoBehaviour
 
         while (elapsed < duration)
         {
-            float strength = Mathf.Lerp(magnitude, 0f, elapsed / duration); // Плавное затухание
+            float strength = Mathf.Lerp(magnitude, 0f, elapsed / duration);
 
             float x = Random.Range(-1f, 1f) * strength;
             float y = Random.Range(-1f, 1f) * strength;

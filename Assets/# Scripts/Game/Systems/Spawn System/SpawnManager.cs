@@ -129,6 +129,7 @@ public class SpawnManager : MonoBehaviour, IManager
             m_timerSpawn = 0;
 
             await UniTask.Delay(Random.Range(0, (int)_spawnDelay * 1000));
+            await UniTask.WaitWhile(() => Status != ManagerStatus.Started);
 
             Spawn();
         }

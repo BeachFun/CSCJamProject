@@ -575,7 +575,7 @@ GameObject:
   - component: {fileID: 8928458430869977036}
   - component: {fileID: 4816848597865879833}
   m_Layer: 5
-  m_Name: Choose Level Screen
+  m_Name: Choose Level Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

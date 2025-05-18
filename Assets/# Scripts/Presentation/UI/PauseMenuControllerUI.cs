@@ -39,6 +39,11 @@ public class PauseMenuControllerUI : MonoBehaviour
         SceneManager.LoadScene(currentScene.name);
     }
 
+    public void OpenReferences()
+    {
+        _uiService?.OpenScreen("References");
+    }
+
     public void OpenSettings()
     {
         _uiService?.OpenScreen("Settings");
