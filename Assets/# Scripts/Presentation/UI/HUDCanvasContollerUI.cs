@@ -6,7 +6,7 @@ using Zenject;
 using UnityEngine.SceneManagement;
 using System.Collections;
 
-public class HUDCanvasConttollerUI : MonoBehaviour
+public class HUDCanvasContollerUI : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _timerText;
     [SerializeField] private Image[] hearts;

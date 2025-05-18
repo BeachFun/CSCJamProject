@@ -1,16 +1,20 @@
 using UnityEngine;
-using UnityEngine.Events; // Чтобы можно было назначить действия в инспекторе
+using UnityEngine.Events;
 
+[RequireComponent(typeof(Collider2D))]
+[RequireComponent(typeof(SpriteRenderer))]
 public class SimpleButton2D : MonoBehaviour
 {
+    [Header("References")]
     public Sprite normalSprite;
     public Sprite highlightedSprite;
     public Sprite pressedSprite;
+    [Header("Actions"), Space]
+    public UnityEvent onClick;
 
     private SpriteRenderer spriteRenderer;
     private bool isPressed = false;
 
-    public UnityEvent onClick; // Событие для клика
 
     private void Start()
     {
@@ -32,14 +36,13 @@ public class SimpleButton2D : MonoBehaviour
 
     private void OnMouseDown()
     {
-        spriteRenderer.sprite = pressedSprite;
-        isPressed = true;
-        onClick.Invoke(); // Выполняем действие
-    }
+        isPressed = !isPressed;
 
-    private void OnMouseUp()
-    {
-        isPressed = false;
-        spriteRenderer.sprite = highlightedSprite; // Вернуться в состояние наведения
+        if (isPressed)
+            spriteRenderer.sprite = pressedSprite;
+        else
+            spriteRenderer.sprite = highlightedSprite;
+
+        onClick.Invoke();
     }
 }

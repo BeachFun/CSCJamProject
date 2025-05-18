@@ -41,7 +41,7 @@ public class PauseMenuControllerUI : MonoBehaviour
 
     public void OpenSettings()
     {
-        _uiService?.OpenSettings();
+        _uiService?.OpenScreen("Settings");
     }
 
     public void Exit()

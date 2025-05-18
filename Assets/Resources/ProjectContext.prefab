@@ -44,6 +44,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d255312fb26257741abd2002a0332055, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _screenHashTable:
+  - screenName: Settings
+    screenPrefab: {fileID: 1860118516148620697, guid: 540121fa726ee334186967ca706e29ec, type: 3}
+  - screenName: References
+    screenPrefab: {fileID: 1303082940508980826, guid: dabd14fdb3e406149b41763070bf5064, type: 3}
 --- !u!1 &4653578041551886000
 GameObject:
   m_ObjectHideFlags: 0

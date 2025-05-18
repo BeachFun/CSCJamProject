@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 
 
-public class NewMonoBehaviourScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class UI_Highlighting : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     [Header("Settings")]
     [SerializeField] private Vector3 _hoverScale = new Vector3(1.1f, 1.1f, 1.0f);
