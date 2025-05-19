@@ -4,8 +4,6 @@ using Zenject;
 using RGames.Core;
 using System.Linq;
 using Cysharp.Threading.Tasks;
-using static UnityEngine.Rendering.DebugUI;
-using System;
 
 public class InstrumentManager : MonoBehaviour, IManager
 {
@@ -26,9 +24,6 @@ public class InstrumentManager : MonoBehaviour, IManager
     [SerializeField] private Transform[] _soundSpawnPoints;
 
     [Header("References")]
-    [SerializeField] private Sprite _bassGuitarSprite;
-    [SerializeField] private Sprite _lectroGuitarSprite;
-    [SerializeField] private Sprite _synthezatorSprite;
     [SerializeField] private GameObject _instrument1;
     [SerializeField] private GameObject _instrument2;
     [SerializeField] private GameObject _instrument3;
@@ -46,8 +41,7 @@ public class InstrumentManager : MonoBehaviour, IManager
 
     //private float m_timerAcceleration;
 
-    private InstrumentEnum[] _instruments = new InstrumentEnum[3];
-
+    private InstrumentEnum[] m_roads = new InstrumentEnum[3];
 
     public ManagerStatus Status { get; private set; }
 
@@ -59,17 +53,12 @@ public class InstrumentManager : MonoBehaviour, IManager
         _gameManager.CurrentGameState.Subscribe(OnGameStateChangedHandler);
         _gameManager.ElapsedTime.Subscribe(OnTimeUpdateHandler);
 
-        if (_instrument1 is null) m_instument1IsOn = false;
-        if (_instrument2 is null) m_instument2IsOn = false;
-        if (_instrument3 is null) m_instument3IsOn = false;
-
         print("Instrument Manager is initialized");
     }
 
     private void Start()
     {
         Status = ManagerStatus.Started;
-
         print("Instrument Manager is Started");
     }
 
@@ -91,7 +80,7 @@ public class InstrumentManager : MonoBehaviour, IManager
 
             if (m_instument1IsOn)
             {
-                index = _instruments.ToList().IndexOf(InstrumentEnum.BassGuitar);
+                index = m_roads.ToList().IndexOf(InstrumentEnum.BassGuitar);
 
                 if (index != -1)
                 {
@@ -102,7 +91,7 @@ public class InstrumentManager : MonoBehaviour, IManager
 
             if (m_instument2IsOn)
             {
-                index = _instruments.ToList().IndexOf(InstrumentEnum.ElectroGuitar);
+                index = m_roads.ToList().IndexOf(InstrumentEnum.ElectroGuitar);
 
                 if (index != -1)
                 {
@@ -113,7 +102,7 @@ public class InstrumentManager : MonoBehaviour, IManager
 
             if (m_instument3IsOn)
             {
-                index = _instruments.ToList().IndexOf(InstrumentEnum.Synthezator);
+                index = m_roads.ToList().IndexOf(InstrumentEnum.Synthezator);
 
                 if (index != -1)
                 {
@@ -127,25 +116,28 @@ public class InstrumentManager : MonoBehaviour, IManager
     }
 
 
-    public void Instrument1(int roadIndex) => ChangeRoad(roadIndex, InstrumentEnum.BassGuitar);
-    public void Instrument2(int roadIndex) => ChangeRoad(roadIndex, InstrumentEnum.ElectroGuitar);
-    public void Instrument3(int roadIndex) => ChangeRoad(roadIndex, InstrumentEnum.Synthezator);
+    public void SetInstrumentActive(InstrumentEnum value, bool isActive)
+    {
+        if (value == InstrumentEnum.BassGuitar) m_instument1IsOn = isActive;
+        if (value == InstrumentEnum.ElectroGuitar) m_instument2IsOn = isActive;
+        if (value == InstrumentEnum.Synthezator) m_instument3IsOn = isActive;
+    }
 
-    public void ChangeRoad(int roadIndex, InstrumentEnum value)
+    public void ChangeRoad(InstrumentEnum value, int roadIndex)
     {
         // Если на дорожке такой же инструмент
-        if (_instruments[roadIndex] == value) return;
+        if (m_roads[roadIndex] == value) return;
 
         // Если на другой дорожке есть этот инструмент, то удалить
-        int index = _instruments.ToList().IndexOf(value);
+        int index = m_roads.ToList().IndexOf(value);
         if (index != -1)
         {
             if (_roadsInstrImage[index] != null)
                 _roadsInstrImage[index].sprite = null;
-            _instruments[index] = InstrumentEnum.None;
+            m_roads[index] = InstrumentEnum.None;
         }
 
-        _instruments[roadIndex] = value;
+        m_roads[roadIndex] = value;
         if (_roadsInstrImage[roadIndex] != null)
             _roadsInstrImage[roadIndex].sprite = GetInstrumentSprite(ref value);
 
@@ -166,14 +158,9 @@ public class InstrumentManager : MonoBehaviour, IManager
 
     private void OnGameStateChangedHandler(GameState state)
     {
-        if (state == GameState.Played)
-        {
-            Status = ManagerStatus.Started;
-        }
-        else
-        {
-            Status = ManagerStatus.Suspended;
-        }
+        Status = state == GameState.Played
+           ? ManagerStatus.Started
+           : ManagerStatus.Suspended;
     }
 
     private void OnInstrumentChangedHandler()
