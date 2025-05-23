@@ -29,7 +29,7 @@ public class InstrumentManager : MonoBehaviour, IManager
     [SerializeField] private GameObject _instrument3;
 
     [Inject] private GameManager _gameManager;
-    [Inject] private MusicManager _musicManager;
+    //[Inject] private MusicManager _musicManager;
 
 
     //private bool m_accelerationIsOn = true;
@@ -138,21 +138,17 @@ public class InstrumentManager : MonoBehaviour, IManager
         }
 
         m_roads[roadIndex] = value;
-        if (_roadsInstrImage[roadIndex] != null)
-            _roadsInstrImage[roadIndex].sprite = GetInstrumentSprite(ref value);
 
         // Удаление инстумента с доррожки
         if (value != InstrumentEnum.None)
         {
-            _musicManager.UpdateState((int)value, true);
+            // _musicManager.UpdateState((int)value, true);
         }
         // Добавление инструмента на дорожку
         else
         {
-            _musicManager.UpdateState((int)value, false);
+            // _musicManager.UpdateState((int)value, false);
         }
-
-        OnInstrumentChangedHandler();
     }
 
 
@@ -163,21 +159,6 @@ public class InstrumentManager : MonoBehaviour, IManager
            : ManagerStatus.Suspended;
     }
 
-    private void OnInstrumentChangedHandler()
-    {
-
-    }
-
-    private Sprite GetInstrumentSprite(ref InstrumentEnum value)
-    {
-        return value switch
-        {
-            InstrumentEnum.BassGuitar => _bassGuitarSprite,
-            InstrumentEnum.ElectroGuitar => _lectroGuitarSprite,
-            InstrumentEnum.Synthezator => _synthezatorSprite,
-            _ => null
-        };
-    }
 
     private async void Instument1Coldown()
     {

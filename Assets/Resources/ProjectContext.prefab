@@ -170,6 +170,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac9756b04dbf856409d654f1a5d0532f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _volumeMusic:
+    value: 1
+  _volumeDrums:
+    value: 0.8
+  _volumeBass:
+    value: 0.6
+  _volumeGuitar:
+    value: 0.7
+  _volumeSynth:
+    value: 0.8
+  _volumeSFX:
+    value: 1
+  _mixer: {fileID: 24100000, guid: e565a2c1b80211249bce7def0bf4da4d, type: 2}
 --- !u!1 &7071497571512280118
 GameObject:
   m_ObjectHideFlags: 0
