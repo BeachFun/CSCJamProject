@@ -27,6 +27,7 @@ public class SpawnManager : MonoBehaviour, IManager
     private float m_lastElapsedTime;
     private float m_timerSpawn;
     private float m_timerAcceleration;
+    private float m_intervalSpawn;
 
     public ManagerStatus Status { get; private set; }
 
@@ -36,6 +37,8 @@ public class SpawnManager : MonoBehaviour, IManager
         Status = ManagerStatus.Initializing;
 
         _data = (SpawnManagerData)_data.Clone();
+
+        SetIntervalSpawn();
 
         _gameManager.CurrentGameState.Subscribe(OnGameStateChangedHandler);
         _gameManager.ElapsedTime.Subscribe(OnTimeUpdateHandler);
@@ -110,8 +113,6 @@ public class SpawnManager : MonoBehaviour, IManager
         if (m_accelerationIsOn) AccelerationCalc(ref elapsedTime, ref interval);
         SpawnCalc(elapsedTime, interval);
 
-        //_data.Enemies[0].ChancePoints += 1;
-
         m_lastElapsedTime = elapsedTime;
     }
 
@@ -124,11 +125,11 @@ public class SpawnManager : MonoBehaviour, IManager
         m_timerSpawn += interval;
 
         // Спавн, если время спавна пришло
-        if (m_timerSpawn >= _intervalSpawn)
+        if (m_timerSpawn >= m_intervalSpawn)
         {
             m_timerSpawn = 0;
 
-            await UniTask.Delay(Random.Range(0, (int)_spawnDelay * 1000));
+            SetIntervalSpawn();
             await UniTask.WaitWhile(() => Status != ManagerStatus.Started);
 
             Spawn();
@@ -157,5 +158,10 @@ public class SpawnManager : MonoBehaviour, IManager
 
             m_timerAcceleration = 0;
         }
+    }
+
+    private void SetIntervalSpawn()
+    {
+        m_intervalSpawn = _intervalSpawn + Random.Range(0, (int)_spawnDelay * 1000);
     }
 }
