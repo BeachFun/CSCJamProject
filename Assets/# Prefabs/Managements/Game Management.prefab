@@ -50,9 +50,6 @@ MonoBehaviour:
   _ins3Cooldown: 4
   _roadsInstrImage: []
   _soundSpawnPoints: []
-  _bassGuitarSprite: {fileID: 0}
-  _lectroGuitarSprite: {fileID: 0}
-  _synthezatorSprite: {fileID: 0}
   _instrument1: {fileID: 0}
   _instrument2: {fileID: 0}
   _instrument3: {fileID: 0}
@@ -97,13 +94,13 @@ AudioSource:
   m_GameObject: {fileID: 1440538432062667101}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 9200189806509346011, guid: e565a2c1b80211249bce7def0bf4da4d, type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.3
+  m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -278,13 +275,13 @@ AudioSource:
   m_GameObject: {fileID: 2932436385926755813}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 8474674389688109156, guid: e565a2c1b80211249bce7def0bf4da4d, type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.4
+  m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -583,13 +580,13 @@ AudioSource:
   m_GameObject: {fileID: 5942307533343782600}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -883653027377194039, guid: e565a2c1b80211249bce7def0bf4da4d, type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.4
+  m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -842,13 +839,13 @@ AudioSource:
   m_GameObject: {fileID: 7788967390247494619}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 4205381418733932800, guid: e565a2c1b80211249bce7def0bf4da4d, type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.5
+  m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
