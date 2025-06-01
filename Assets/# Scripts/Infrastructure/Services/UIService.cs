@@ -1,12 +1,15 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Zenject;
 
 public class UIService : MonoBehaviour
 {
-    [SerializeField] private KeyScreenPair[] _screenHashTable;
+    [SerializeField] private KeyCanvasPair[] _canvasHashTable;
 
-    private Dictionary<string, ScreenBase> _screens = new();
+    [Inject] private DiContainer _container;
+
+    private Dictionary<string, CanvasBase> _canvases = new();
 
 
     private void Awake()
@@ -19,9 +22,9 @@ public class UIService : MonoBehaviour
         print("UI Service is Started");
     }
 
-    public void OpenScreen(string screenName)
+    public void OpenCanvas(string canvasName)
     {
-        var pair = _screenHashTable.FirstOrDefault(x => x.screenName == screenName);
+        var pair = _canvasHashTable.FirstOrDefault(x => x.canvasName == canvasName);
 
         if (pair is null)
         {
@@ -29,53 +32,54 @@ public class UIService : MonoBehaviour
             return;
         }
 
-        ScreenBase screenPrefab = pair.screenPrefab;
+        CanvasBase canvasPrefab = pair.canvasPrefab;
 
-        if (screenPrefab is null)
+        if (canvasPrefab is null)
         {
             Debug.LogError("Не удалось создать Screen на сцене. Нет ссылки на префаб canvas с UI!");
             return;
         }
 
-        GameObject screenObj = Instantiate(screenPrefab.gameObject);
+        GameObject canvasGO = Instantiate(canvasPrefab.gameObject);
 
-        ScreenBase screen = screenObj.GetComponent<ScreenBase>();
-        if (screen is null)
+        CanvasBase canvas = canvasGO.GetComponent<CanvasBase>();
+        if (canvas is null)
         {
             Debug.LogWarning("Не удалось создать Screen на сцене. К canvas не прикреплен скрипт для UI...");
-            DestroyImmediate(screenObj);
+            DestroyImmediate(canvasGO);
             return;
         }
-        screen.Show(true);
-        screen.OnVisibleUpdated += OnScreenVisibleUpdatedHandler; // Смысла в отписке от события нет, ведь Сервис UI обязан быть всегда
+        canvas.Show(true);
+        canvas.OnVisibleUpdated += OnCanvasVisibleUpdatedHandler; // Смысла в отписке от события нет, ведь Сервис UI обязан быть всегда
+        _container.Inject(canvas);
 
-        _screens.Add(screenName, screen);
-        print($"Screen {screenName} открыт");
+        _canvases.Add(canvasName, canvas);
+        print($"Screen {canvasName} открыт");
     }
 
-    public void CloseScreen(string screenName)
+    public void CloseCanvas(string canvasName)
     {
-        if (!_screens.ContainsKey(screenName)) return;
+        if (!_canvases.ContainsKey(canvasName)) return;
 
-        _screens[screenName].Show(false);
+        _canvases[canvasName].Show(false);
     }
 
-    private void OnScreenVisibleUpdatedHandler(ScreenBase screen, bool isShow)
+    private void OnCanvasVisibleUpdatedHandler(CanvasBase canvas, bool isShow)
     {
         if (isShow) return;
 
-        string key = _screens.FirstOrDefault(kv => kv.Value == screen).Key;
+        string key = _canvases.FirstOrDefault(kv => kv.Value == canvas).Key;
         if (key != null)
         {
-            _screens.Remove(key);
-            Destroy(screen.gameObject);
+            _canvases.Remove(key);
+            Destroy(canvas.gameObject);
         }
     }
 }
 
 [System.Serializable]
-public class KeyScreenPair
+public class KeyCanvasPair
 {
-    public string screenName;
-    public ScreenBase screenPrefab;
+    public string canvasName;
+    public CanvasBase canvasPrefab;
 }

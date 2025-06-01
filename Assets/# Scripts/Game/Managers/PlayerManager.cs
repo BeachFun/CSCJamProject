@@ -1,22 +1,22 @@
 ﻿using UnityEngine;
 using UniRx;
+using RGames.Core;
 
-public class PlayerManager : MonoBehaviour
+public class PlayerManager : ServiceBase
 {
     [SerializeField] private ReactiveProperty<int> _health;
 
-    public ReactiveProperty<int> Health => _health;
+    public ReadOnlyReactiveProperty<int> Health => _health.ToReadOnlyReactiveProperty();
 
 
-    private void Awake()
+    #region [Методы] Инициализация и запуск
+
+    public override void Startup()
     {
-        print("Player Manager is initialized");
+        this.status.Value = ServiceStatus.Started;
     }
 
-    private void Start()
-    {
-        print("Player Manager is Started");
-    }
+    #endregion
 
 
     public void Heat(int points)

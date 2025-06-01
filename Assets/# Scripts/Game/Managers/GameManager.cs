@@ -1,74 +1,60 @@
-using UnityEngine;
-using Zenject;
-using UniRx;
 using UnityEngine.SceneManagement;
+using UniRx;
+using Zenject;
+using RGames.Core;
 
-public class GameManager : MonoBehaviour
+public class GameManager : ServiceBase
 {
-    [SerializeField] private ReactiveProperty<float> _elapsedTime = new();
-    [SerializeField] private float _winTimeInSeconds = 300;
-
     [Inject] private InputService _inputService;
-
-    private ReactiveProperty<GameState> _gameState = new();
-    private bool _isCounting = true;
+    [Inject] private TimeManager _timeManager;
+    [Inject] private GameoverManager _gameoverManager;
+    private readonly ReactiveProperty<GameState> _gameState = new();
 
     public ReactiveProperty<GameState> CurrentGameState => _gameState;
 
 
-    public bool TimerIsOn => _isCounting;
-    public ReactiveProperty<float> ElapsedTime => _elapsedTime;
+    #region [Методы] Инициализация и запуск
 
-
-    private void Awake()
+    public override void Startup()
     {
-        _inputService.EscapeIsDown.Subscribe(OnEscapeDownHandler);
+        _inputService.EscapeIsDown
+            .Subscribe((isDown) => { if (isDown) SwitchGameState(); })
+            .AddTo(this);
 
-        print("Game Manager is initialized");
+        _gameoverManager.State
+            .Where(x => x != GameoverState.None)
+            .Subscribe(x => _gameState.Value = GameState.Paused)
+            .AddTo(this);
+
+        this.status.Value = ServiceStatus.Started;
     }
 
     private void Start()
     {
         ChangeGameState(GameState.Played);
-
-        print("Game Manager is Started");
     }
 
-    private void FixedUpdate()
-    {
-        if (_isCounting)
-        {
-            _elapsedTime.Value += Time.fixedDeltaTime;
-        }
-    }
+    #endregion
 
 
     public void ChangeGameState(GameState state)
     {
         if (state == GameState.Paused)
         {
-            _isCounting = false;
+            _timeManager.Pause();
             print("Игра приостановлена");
         }
         else
         {
-            _isCounting = true;
+            _timeManager.Resume();
             print("Игра возобновлена");
         }
 
         _gameState.Value = state;
     }
 
-    public void ExitGame()
+    public void SwitchGameState()
     {
-        SceneManager.LoadScene("MainMenu");
-    }
-
-
-    private void OnEscapeDownHandler(bool isEscapeDown)
-    {
-        if (!isEscapeDown) return;
-
         if (_gameState.Value == GameState.Paused)
         {
             ChangeGameState(GameState.Played);
@@ -78,4 +64,21 @@ public class GameManager : MonoBehaviour
             ChangeGameState(GameState.Paused);
         }
     }
+
+    public void Restart()
+    {
+        Scene currentScene = SceneManager.GetActiveScene();
+        SceneManager.LoadSceneAsync(currentScene.name);
+    }
+
+    public void Exit()
+    {
+        SceneManager.LoadSceneAsync("MainMenu");
+    }
+}
+
+public enum GameState
+{
+    Played,
+    Paused
 }

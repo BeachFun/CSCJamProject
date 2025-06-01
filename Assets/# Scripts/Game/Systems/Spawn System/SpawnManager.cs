@@ -4,7 +4,7 @@ using UniRx;
 using RGames.Core;
 using Cysharp.Threading.Tasks;
 
-public class SpawnManager : MonoBehaviour, IManager
+public class SpawnManager : ServiceBase
 {
     [Header("Settings - main")]
     [SerializeField] private float _intervalSpawn;
@@ -21,6 +21,7 @@ public class SpawnManager : MonoBehaviour, IManager
 
 
     [Inject] private GameManager _gameManager;
+    [Inject] private TimeManager _timeManager;
     [Inject] private EnemyManager _enemyManager;
 
     private bool m_accelerationIsOn = true;
@@ -29,29 +30,27 @@ public class SpawnManager : MonoBehaviour, IManager
     private float m_timerAcceleration;
     private float m_intervalSpawn;
 
-    public ManagerStatus Status { get; private set; }
 
+    #region [Методы] Инициализация и запуск
 
-    private void Awake()
+    public override void Startup()
     {
-        Status = ManagerStatus.Initializing;
-
         _data = (SpawnManagerData)_data.Clone();
 
         SetIntervalSpawn();
 
-        _gameManager.CurrentGameState.Subscribe(OnGameStateChangedHandler);
-        _gameManager.ElapsedTime.Subscribe(OnTimeUpdateHandler);
+        _gameManager.CurrentGameState
+            .Subscribe(OnGameStateChangedHandler)
+            .AddTo(this);
 
-        print("Spawn Manager is initialized");
+        _timeManager.ElapsedTime
+            .Subscribe(OnTimeUpdateHandler)
+            .AddTo(this);
+
+        this.status.Value = ServiceStatus.Started;
     }
 
-    private void Start()
-    {
-        Status = ManagerStatus.Started;
-
-        print("Spawn Manager is Started");
-    }
+    #endregion
 
 
     [ContextMenu("Тест - Zombie Spawn")]
@@ -59,9 +58,12 @@ public class SpawnManager : MonoBehaviour, IManager
     {
         GameObject enemyPrefab = GetRandomEnemy();
 
-        if (enemyPrefab is null) return;
+        if (enemyPrefab == null) return;
 
-        _enemyManager.AddEnemy(_spawnZones[Random.Range(0, _spawnZones.Length)].Spawn(enemyPrefab));
+        int roadIndex = Random.Range(0, _spawnZones.Length);
+        var enemyGO = _spawnZones[roadIndex].Spawn(enemyPrefab);
+        enemyGO.GetComponent<ZombieController>().Road = roadIndex;
+        _enemyManager.AddEnemy(enemyGO);
 
         m_timerSpawn = 0;
     }
@@ -93,20 +95,15 @@ public class SpawnManager : MonoBehaviour, IManager
 
     private void OnGameStateChangedHandler(GameState state)
     {
-        if (state == GameState.Played)
-        {
-            Status = ManagerStatus.Started;
-        }
-        else
-        {
-            Status = ManagerStatus.Suspended;
-        }
+        this.status.Value = state == GameState.Played
+            ? ServiceStatus.Started
+            : ServiceStatus.Suspended;
     }
 
 
     private void OnTimeUpdateHandler(float elapsedTime)
     {
-        if (Status != ManagerStatus.Started) return;
+        if (Status.Value != ServiceStatus.Started) return;
 
         float interval = (elapsedTime - m_lastElapsedTime);
 
@@ -130,7 +127,7 @@ public class SpawnManager : MonoBehaviour, IManager
             m_timerSpawn = 0;
 
             SetIntervalSpawn();
-            await UniTask.WaitWhile(() => Status != ManagerStatus.Started);
+            await UniTask.WaitWhile(() => Status.Value != ServiceStatus.Started);
 
             Spawn();
         }
@@ -162,6 +159,6 @@ public class SpawnManager : MonoBehaviour, IManager
 
     private void SetIntervalSpawn()
     {
-        m_intervalSpawn = _intervalSpawn + Random.Range(0, (int)_spawnDelay * 1000);
+        m_intervalSpawn = _intervalSpawn + Random.Range(0f, _spawnDelay);
     }
 }

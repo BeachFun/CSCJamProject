@@ -2,9 +2,8 @@
 using UniRx;
 using Zenject;
 using RGames.Core;
-using UnityEngine.Audio;
 
-public class MusicManager : MonoBehaviour, IManager
+public class MusicManager : ServiceBase
 {
     [Header("Bindings")]
     [SerializeField] private AudioSource _drums;
@@ -14,20 +13,24 @@ public class MusicManager : MonoBehaviour, IManager
 
     [Inject] private GameManager _gameManager;
 
-    public ManagerStatus Status { get; private set; }
 
+    #region [Методы] Инициализация и запуск
 
-    private void Awake()
+    public override void Startup()
     {
-        _gameManager.CurrentGameState.Subscribe(OnGameStateChangedHandler).AddTo(this);
+        _gameManager.CurrentGameState
+            .Subscribe(OnGameStateChangedHandler)
+            .AddTo(this);
     }
+
+    #endregion
 
 
     private void OnGameStateChangedHandler(GameState state)
     {
         if (state == GameState.Played)
         {
-            Status = ManagerStatus.Started;
+            this.status.Value = ServiceStatus.Started;
 
             _drums.Play();
             _guitar.Play();
@@ -36,7 +39,7 @@ public class MusicManager : MonoBehaviour, IManager
         }
         else
         {
-            Status = ManagerStatus.Suspended;
+            this.status.Value = ServiceStatus.Suspended;
 
             _drums.Pause();
             _guitar.Pause();

@@ -1,37 +1,43 @@
-﻿using System.Collections.Generic;
+﻿using System.Linq;
 using UnityEngine;
 using UniRx;
 using Zenject;
 using RGames.Core;
-using System.Linq;
 
-public class EnemyManager : MonoBehaviour, IManager
+public class EnemyManager : ServiceBase
 {
-    [Inject] private GameManager _gameManager;
+    [Header("Settings")]
+    [SerializeField] private bool _zombiesIsImmutable;
 
-    private ReactiveCollection<ZombieController> _enemyList = new();
+    [Inject] private readonly GameManager _gameManager;
+
+    private readonly ReactiveCollection<ZombieController> _enemyList = new();
 
     public ReactiveCollection<ZombieController> EnemyList => _enemyList;
 
-    public ManagerStatus Status { get; private set; }
 
+    #region [Методы] Инициализация и запуск
 
-    private void Awake()
+    public override void Startup()
     {
-        _gameManager.CurrentGameState.Subscribe(OnGameStateChangedHandler);
+        _gameManager.CurrentGameState
+            .Subscribe(OnGameStateChangedHandler)
+            .AddTo(this);
     }
+
+    #endregion
 
 
     public void AddEnemy(GameObject enemy)
     {
-        if (enemy is null) return;
+        if (enemy == null) return;
 
-        var controller = enemy.GetComponent<ZombieController>();
-
-        if (controller is null) return;
-
-        _enemyList.Add(controller);
-        controller.OnDead += OnZombieDeadHandler;
+        if (enemy.TryGetComponent<ZombieController>(out ZombieController controller))
+        {
+            controller.IsImmutalbe = _zombiesIsImmutable;
+            _enemyList.Add(controller);
+            controller.OnDead += OnZombieDeadHandler;
+        }
     }
 
 
@@ -39,19 +45,19 @@ public class EnemyManager : MonoBehaviour, IManager
     {
         if (state == GameState.Played)
         {
-            Status = ManagerStatus.Started;
+            this.status.Value = ServiceStatus.Started;
             EnemyList.ToList().ForEach(x => x.WalkIsOn = true);
         }
         else
         {
-            Status = ManagerStatus.Suspended;
+            this.status.Value = ServiceStatus.Suspended;
             EnemyList.ToList().ForEach(x => x.WalkIsOn = false);
         }
     }
 
     private void OnZombieDeadHandler(ZombieController controller)
     {
-        if (controller is not null) return;
+        if (controller != null) return;
 
         if (EnemyList.Contains(controller))
             EnemyList.Remove(controller);

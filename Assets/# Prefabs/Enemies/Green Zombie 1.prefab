@@ -53,13 +53,29 @@ PrefabInstance:
       value: Green Zombie 1
       objectReference: {fileID: 0}
     - target: {fileID: 7144813307831403890, guid: ee886469ecd5eb249a615e2a00b4e53f, type: 3}
+      propertyPath: m_Size.x
+      value: 0.39
+      objectReference: {fileID: 0}
+    - target: {fileID: 7144813307831403890, guid: ee886469ecd5eb249a615e2a00b4e53f, type: 3}
+      propertyPath: m_Size.y
+      value: 0.64
+      objectReference: {fileID: 0}
+    - target: {fileID: 7144813307831403890, guid: ee886469ecd5eb249a615e2a00b4e53f, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -48611988, guid: 0b0a0a64149676f458e20da5965db7ee, type: 3}
+    - target: {fileID: 7144813307831403890, guid: ee886469ecd5eb249a615e2a00b4e53f, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8718115396424373015, guid: ee886469ecd5eb249a615e2a00b4e53f, type: 3}
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 22100000, guid: e984af68042b0de4788016b9d2936965, type: 2}
+    - target: {fileID: 8811945726935728342, guid: ee886469ecd5eb249a615e2a00b4e53f, type: 3}
+      propertyPath: _clipKill
+      value: 
+      objectReference: {fileID: 8300000, guid: 8016076a957f450469a8e356b3f229c6, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

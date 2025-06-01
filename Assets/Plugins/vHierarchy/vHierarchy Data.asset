@@ -20,6 +20,9 @@ MonoBehaviour:
     - 4b84d8f05142bc344838149a8958eaed
     - 0ca19347f4fbee644a7d9dbb47285076
     - 8233f8a485adf46449db5e3e014e56b3
+    - 20fe15fa0d02e78449876ec5f82d0b02
+    - 2425a5fe018834146821b7dcc02018ea
+    - f7757f87c56b2614e9081358ba6403e9
     values:
     - goDatas_byGlobalId:
         keys:
@@ -41,6 +44,8 @@ MonoBehaviour:
         - globalObjectIdString: GlobalObjectId_V1-2-710588dd7052ad846926b13f3088b60b-1701354016-0
         - globalObjectIdString: GlobalObjectId_V1-2-710588dd7052ad846926b13f3088b60b-7105544497908440205-1636333412798257179
         - globalObjectIdString: GlobalObjectId_V1-2-710588dd7052ad846926b13f3088b60b-1006068075-0
+        - globalObjectIdString: GlobalObjectId_V1-2-710588dd7052ad846926b13f3088b60b-1842387819-0
+        - globalObjectIdString: GlobalObjectId_V1-2-710588dd7052ad846926b13f3088b60b-565179619-0
         values:
         - colorIndex: 0
           iconNameOrGuid: Settings Icon
@@ -54,6 +59,10 @@ MonoBehaviour:
           iconNameOrGuid: Settings Icon
         - colorIndex: 0
           iconNameOrGuid: MeshCollider Icon
+        - colorIndex: 0
+          iconNameOrGuid: AudioClip Icon
+        - colorIndex: 0
+          iconNameOrGuid: StandaloneInputModule Icon
     - goDatas_byGlobalId:
         keys:
         - globalObjectIdString: GlobalObjectId_V1-2-fa593be182fa24b49bd45f344e6158ea-105844798-0
@@ -81,3 +90,63 @@ MonoBehaviour:
     - goDatas_byGlobalId:
         keys: []
         values: []
+    - goDatas_byGlobalId:
+        keys:
+        - globalObjectIdString: GlobalObjectId_V1-2-20fe15fa0d02e78449876ec5f82d0b02-526604201-0
+        - globalObjectIdString: GlobalObjectId_V1-2-20fe15fa0d02e78449876ec5f82d0b02-873891223-0
+        - globalObjectIdString: GlobalObjectId_V1-2-20fe15fa0d02e78449876ec5f82d0b02-1466908417-0
+        - globalObjectIdString: GlobalObjectId_V1-2-20fe15fa0d02e78449876ec5f82d0b02-1701354016-0
+        - globalObjectIdString: GlobalObjectId_V1-2-20fe15fa0d02e78449876ec5f82d0b02-7105544497908440205-1636333412798257179
+        - globalObjectIdString: GlobalObjectId_V1-2-20fe15fa0d02e78449876ec5f82d0b02-1006068075-0
+        - globalObjectIdString: GlobalObjectId_V1-2-20fe15fa0d02e78449876ec5f82d0b02-1842387819-0
+        - globalObjectIdString: GlobalObjectId_V1-2-20fe15fa0d02e78449876ec5f82d0b02-565179619-0
+        values:
+        - colorIndex: 0
+          iconNameOrGuid: Settings Icon
+        - colorIndex: 0
+          iconNameOrGuid: Terrain Icon
+        - colorIndex: 0
+          iconNameOrGuid: AvatarMask On Icon
+        - colorIndex: 0
+          iconNameOrGuid: Canvas Icon
+        - colorIndex: 0
+          iconNameOrGuid: Settings Icon
+        - colorIndex: 0
+          iconNameOrGuid: MeshCollider Icon
+        - colorIndex: 0
+          iconNameOrGuid: AudioClip Icon
+        - colorIndex: 0
+          iconNameOrGuid: StandaloneInputModule Icon
+    - goDatas_byGlobalId:
+        keys:
+        - globalObjectIdString: GlobalObjectId_V1-2-2425a5fe018834146821b7dcc02018ea-526604201-0
+        - globalObjectIdString: GlobalObjectId_V1-2-2425a5fe018834146821b7dcc02018ea-873891223-0
+        - globalObjectIdString: GlobalObjectId_V1-2-2425a5fe018834146821b7dcc02018ea-1466908417-0
+        - globalObjectIdString: GlobalObjectId_V1-2-2425a5fe018834146821b7dcc02018ea-1701354016-0
+        - globalObjectIdString: GlobalObjectId_V1-2-2425a5fe018834146821b7dcc02018ea-7105544497908440205-1636333412798257179
+        - globalObjectIdString: GlobalObjectId_V1-2-2425a5fe018834146821b7dcc02018ea-1006068075-0
+        - globalObjectIdString: GlobalObjectId_V1-2-2425a5fe018834146821b7dcc02018ea-1842387819-0
+        - globalObjectIdString: GlobalObjectId_V1-2-2425a5fe018834146821b7dcc02018ea-565179619-0
+        values:
+        - colorIndex: 0
+          iconNameOrGuid: Settings Icon
+        - colorIndex: 0
+          iconNameOrGuid: Terrain Icon
+        - colorIndex: 0
+          iconNameOrGuid: AvatarMask On Icon
+        - colorIndex: 0
+          iconNameOrGuid: Canvas Icon
+        - colorIndex: 0
+          iconNameOrGuid: Settings Icon
+        - colorIndex: 0
+          iconNameOrGuid: MeshCollider Icon
+        - colorIndex: 0
+          iconNameOrGuid: AudioClip Icon
+        - colorIndex: 0
+          iconNameOrGuid: StandaloneInputModule Icon
+    - goDatas_byGlobalId:
+        keys:
+        - globalObjectIdString: GlobalObjectId_V1-1-f7757f87c56b2614e9081358ba6403e9-4465020480035713099-0
+        values:
+        - colorIndex: 0
+          iconNameOrGuid: MeshCollider Icon

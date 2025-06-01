@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cfb4cd52fad9844ea70980c117da2db, type: 3}
+  m_Name: SpawnData-Level2
+  m_EditorClassIdentifier: 
+  Enemies:
+  - ChancePoints: 280
+    EnemyPrefab: {fileID: 7428964198021096686, guid: cea59c6f08a06db468ee089da8d1b17d, type: 3}
+  - ChancePoints: 100
+    EnemyPrefab: {fileID: 7428964198021096686, guid: 8ed1e53a7c1f7aa4fade986916fb9e4e, type: 3}
+  - ChancePoints: 40
+    EnemyPrefab: {fileID: 7428964198021096686, guid: ac79ca991d60e3d45996dd6bf17b6b9f, type: 3}

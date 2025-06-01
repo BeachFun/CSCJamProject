@@ -1,17 +1,21 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class ScreenBase : MonoBehaviour, IScreen<ScreenBase>
 {
-    public bool IsVisible { get; private set; }
+    [Tooltip("Будет ли экран виден после инициализации")]
+    [SerializeField] private bool isVisible;
 
-    public event Action<ScreenBase, bool> OnVisibleUpdated;
+    public bool IsVisible => isVisible;
+
+
+    protected virtual void Awake()
+    {
+        Show(isVisible);
+    }
 
     public void Show(bool isShow)
     {
-        IsVisible = isShow;
+        isVisible = isShow;
         this.gameObject.SetActive(isShow);
-
-        OnVisibleUpdated?.Invoke(this, isShow);
     }
 }

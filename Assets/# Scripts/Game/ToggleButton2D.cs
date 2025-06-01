@@ -6,7 +6,6 @@ using Zenject;
 public class ToggleButton2D : MonoBehaviour
 {
     [Header("Settgins")]
-    [SerializeField] private InstrumentEnum _instrument;
     [SerializeField] private int _road;
 
     [Header("References")]
@@ -16,8 +15,6 @@ public class ToggleButton2D : MonoBehaviour
 
     [Header("Group")]
     [SerializeField] private ToggleButton2DGroup group;
-
-    [Inject] private InstrumentManager instrumentManager;
 
     private SpriteRenderer spriteRenderer;
 
@@ -44,7 +41,7 @@ public class ToggleButton2D : MonoBehaviour
 
     private void OnMouseDown()
     {
-        group.OnButtonClicked(this);
+        group.OnButtonClicked(this, _road);
     }
 
     public void SetPressed(bool pressed)
@@ -55,7 +52,5 @@ public class ToggleButton2D : MonoBehaviour
             spriteRenderer.sprite = pressedSprite;
         else
             spriteRenderer.sprite = normalSprite;
-
-        instrumentManager.ChangeRoad(_instrument, _road);
     }
 }
