@@ -4,27 +4,36 @@ using UniRx;
 
 public class SettingService : MonoBehaviour
 {
-    [Header("Music Settings")]
+    [Header("Audio Settings")]
+    [SerializeField] private ReactiveProperty<float> _volumeMaster = new(1f);
     [SerializeField] private ReactiveProperty<float> _volumeMusic = new();
     [SerializeField] private ReactiveProperty<float> _volumeDrums = new();
     [SerializeField] private ReactiveProperty<float> _volumeBass = new();
     [SerializeField] private ReactiveProperty<float> _volumeGuitar = new();
     [SerializeField] private ReactiveProperty<float> _volumeSynth = new();
-    [Header("SFX Settings")]
     [SerializeField] private ReactiveProperty<float> _volumeSFX = new();
+    [SerializeField] private ReactiveProperty<float> _volumeVoice = new();
     [Header("References")]
     [SerializeField] private AudioMixer _mixer;
 
+    public ReactiveProperty<float> MasterVolume => _volumeMusic;
     public ReactiveProperty<float> MusicVolume => _volumeMusic;
     public ReactiveProperty<float> DrumsVolume => _volumeDrums;
     public ReactiveProperty<float> BassVolume => _volumeBass;
     public ReactiveProperty<float> GuitarVolume => _volumeGuitar;
     public ReactiveProperty<float> SynthVolume => _volumeSynth;
     public ReactiveProperty<float> SFXVolume => _volumeSFX;
+    public ReactiveProperty<float> VoiceVolume => _volumeVoice;
 
 
     private void Awake()
     {
+        MusicVolume.Subscribe(x =>
+        {
+            _mixer.SetFloat("MasterVolume", ToLinear(x));
+            PlayerPrefs.SetFloat("MasterVolume", _volumeMusic.Value);
+        }).AddTo(this);
+
         MusicVolume.Subscribe(x =>
         {
             _mixer.SetFloat("MusicVolume", ToLinear(x));
@@ -61,11 +70,18 @@ public class SettingService : MonoBehaviour
             PlayerPrefs.SetFloat("SFXVolume", _volumeSFX.Value);
         }).AddTo(this);
 
+        VoiceVolume.Subscribe(x =>
+        {
+            _mixer.SetFloat("VoiceVolume", ToLinear(x));
+            PlayerPrefs.SetFloat("VoiceVolume", _volumeVoice.Value);
+        }).AddTo(this);
+
         print("Setting Service is initialized");
     }
 
     private void Start()
     {
+        _volumeMaster.SetValueAndForceNotify(PlayerPrefs.GetFloat("MasterVolume", _volumeMaster.Value));
         _volumeMusic.SetValueAndForceNotify(PlayerPrefs.GetFloat("MusicVolume", _volumeMusic.Value));
         _volumeDrums.SetValueAndForceNotify(PlayerPrefs.GetFloat("DrumsVolume", _volumeDrums.Value));
         _volumeBass.SetValueAndForceNotify(PlayerPrefs.GetFloat("BassVolume", _volumeBass.Value));
