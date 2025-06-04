@@ -1,14 +1,13 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using Zenject;
 
 public class MainMenuController : MonoBehaviour
 {
-    [Inject] private UIService _uiService;
+    [Inject] private SceneLoadingService sceneLoadingService;
 
     public void LoadSceneAsync(string sceneName)
     {
-        SceneManager.LoadSceneAsync(sceneName);
+        sceneLoadingService.LoadSceneAsync(sceneName, requireUserConfirmation: true).Forget();
     }
 
     public void OnExitButton()
