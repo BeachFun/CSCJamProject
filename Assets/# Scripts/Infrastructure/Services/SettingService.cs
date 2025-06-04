@@ -1,97 +1,67 @@
 ﻿using UnityEngine;
 using UnityEngine.Audio;
 using UniRx;
+using RGames.Core;
 
-public class SettingService : MonoBehaviour
+public class SettingService : ServiceBase
 {
     [Header("Audio Settings")]
     [SerializeField] private ReactiveProperty<float> _volumeMaster = new(1f);
     [SerializeField] private ReactiveProperty<float> _volumeMusic = new();
-    [SerializeField] private ReactiveProperty<float> _volumeDrums = new();
-    [SerializeField] private ReactiveProperty<float> _volumeBass = new();
-    [SerializeField] private ReactiveProperty<float> _volumeGuitar = new();
-    [SerializeField] private ReactiveProperty<float> _volumeSynth = new();
     [SerializeField] private ReactiveProperty<float> _volumeSFX = new();
     [SerializeField] private ReactiveProperty<float> _volumeVoice = new();
     [Header("References")]
     [SerializeField] private AudioMixer _mixer;
 
-    public ReactiveProperty<float> MasterVolume => _volumeMusic;
+    public ReactiveProperty<float> MasterVolume => _volumeMaster;
     public ReactiveProperty<float> MusicVolume => _volumeMusic;
-    public ReactiveProperty<float> DrumsVolume => _volumeDrums;
-    public ReactiveProperty<float> BassVolume => _volumeBass;
-    public ReactiveProperty<float> GuitarVolume => _volumeGuitar;
-    public ReactiveProperty<float> SynthVolume => _volumeSynth;
     public ReactiveProperty<float> SFXVolume => _volumeSFX;
     public ReactiveProperty<float> VoiceVolume => _volumeVoice;
 
 
-    private void Awake()
+    #region [Методы] Инициализация и запуск
+
+    public override void Startup()
     {
-        MusicVolume.Subscribe(x =>
-        {
-            _mixer.SetFloat("MasterVolume", ToLinear(x));
-            PlayerPrefs.SetFloat("MasterVolume", _volumeMusic.Value);
-        }).AddTo(this);
+        MasterVolume
+            .Subscribe(x => OnVolumeUpdated("MasterVolume", "MasterVolume", x))
+            .AddTo(this);
 
-        MusicVolume.Subscribe(x =>
-        {
-            _mixer.SetFloat("MusicVolume", ToLinear(x));
-            PlayerPrefs.SetFloat("MusicVolume", _volumeMusic.Value);
-        }).AddTo(this);
+        MusicVolume
+            .Subscribe(x => OnVolumeUpdated("MusicVolume", "MusicVolume", x))
+            .AddTo(this);
 
-        DrumsVolume.Subscribe(x =>
-        {
-            _mixer.SetFloat("DrumsVolume", ToLinear(x));
-            PlayerPrefs.SetFloat("DrumsVolume", _volumeDrums.Value);
-        }).AddTo(this);
+        SFXVolume
+            .Subscribe(x => OnVolumeUpdated("SFXVolume", "SFXVolume", x))
+            .AddTo(this);
 
-        BassVolume.Subscribe(x => 
-        {
-            _mixer.SetFloat("BassVolume", ToLinear(x));
-            PlayerPrefs.SetFloat("BassVolume", _volumeBass.Value);
-        }).AddTo(this);
+        VoiceVolume
+            .Subscribe(x => OnVolumeUpdated("VoiceVolume", "VoiceVolume", x))
+            .AddTo(this);
 
-        GuitarVolume.Subscribe(x =>
-        {
-            _mixer.SetFloat("GuitarVolume", ToLinear(x));
-            PlayerPrefs.SetFloat("GuitarVolume", _volumeGuitar.Value);
-        }).AddTo(this);
-
-        SynthVolume.Subscribe(x =>
-        {
-            _mixer.SetFloat("SynthVolume", ToLinear(x));
-            PlayerPrefs.SetFloat("SynthVolume", _volumeSynth.Value);
-        }).AddTo(this);
-
-        SFXVolume.Subscribe(x =>
-        {
-            _mixer.SetFloat("SFXVolume", ToLinear(x));
-            PlayerPrefs.SetFloat("SFXVolume", _volumeSFX.Value);
-        }).AddTo(this);
-
-        VoiceVolume.Subscribe(x =>
-        {
-            _mixer.SetFloat("VoiceVolume", ToLinear(x));
-            PlayerPrefs.SetFloat("VoiceVolume", _volumeVoice.Value);
-        }).AddTo(this);
-
-        print("Setting Service is initialized");
+        this.status.Value = ServiceStatus.Started;
     }
+
+    #endregion
+
 
     private void Start()
     {
         _volumeMaster.SetValueAndForceNotify(PlayerPrefs.GetFloat("MasterVolume", _volumeMaster.Value));
         _volumeMusic.SetValueAndForceNotify(PlayerPrefs.GetFloat("MusicVolume", _volumeMusic.Value));
-        _volumeDrums.SetValueAndForceNotify(PlayerPrefs.GetFloat("DrumsVolume", _volumeDrums.Value));
-        _volumeBass.SetValueAndForceNotify(PlayerPrefs.GetFloat("BassVolume", _volumeBass.Value));
-        _volumeGuitar.SetValueAndForceNotify(PlayerPrefs.GetFloat("GuitarVolume", _volumeGuitar.Value));
-        _volumeSynth.SetValueAndForceNotify(PlayerPrefs.GetFloat("SynthVolume", _volumeSynth.Value));
         _volumeSFX.SetValueAndForceNotify(PlayerPrefs.GetFloat("SFXVolume", _volumeSFX.Value));
 
         print("Setting Service is Started");
     }
 
+
+    private void OnVolumeUpdated(string mixerParameter, string prefsParameter, float value)
+    {
+        _mixer.SetFloat(mixerParameter, ToLinear(value));
+
+        if (Status.Value == ServiceStatus.Started)
+            PlayerPrefs.SetFloat(prefsParameter, value);
+    }
 
     private float ToLinear(float volume) => Mathf.Approximately(volume, 0f) ? -80f : 20f * Mathf.Log10(volume);
 }

@@ -7,7 +7,7 @@ namespace RGames.Core
     {
         protected ReactiveProperty<ServiceStatus> status = new();
 
-        public  ReadOnlyReactiveProperty<ServiceStatus> Status => status.ToReadOnlyReactiveProperty();
+        public ReadOnlyReactiveProperty<ServiceStatus> Status => status.ToReadOnlyReactiveProperty();
 
         /// <summary>
         /// Запуск сервиса
